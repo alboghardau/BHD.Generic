@@ -18,6 +18,11 @@ namespace MServ.Auth.Config
             config = JObject.Parse(file);
         }
 
+        public void LoadConfiguration(string configFileName)
+        {
+            throw new NotImplementedException();
+        }
+
         public int GetInt(string jsonPath)
         {
             int num = 0;
@@ -54,6 +59,8 @@ namespace MServ.Auth.Config
             }
             return String.Empty;
         }
+
+
 
         #endregion
     }
