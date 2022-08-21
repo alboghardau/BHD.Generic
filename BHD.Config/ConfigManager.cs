@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MServ.Auth.Config.Config
+namespace MServ.Auth.Config
 {
     public class ConfigManager : IConfigManager     
     {
