@@ -1,4 +1,7 @@
-﻿using MServ.Auth.Config.Interfaces;
+﻿using BHD.Config.Interfaces;
+using BHD.Config.Models;
+using BHD.Config.Services;
+using MServ.Auth.Config.Interfaces;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -10,58 +13,31 @@ namespace MServ.Auth.Config
 {
     public class ConfigManager : IConfigManager     
     {
-        JObject config;
+        private IConfigService configService;
+
         public ConfigManager()
         {
-            string path = Path.Combine(AppContext.BaseDirectory, "Config.json");
-            var file = File.ReadAllText(path);
-            config = JObject.Parse(file);
+            configService = new ConfigService(new ConfigFile());
         }
 
         public void LoadConfiguration(string configFileName)
         {
-            throw new NotImplementedException();
+            configService.LoadConfiguration(configFileName);
         }
 
         public int GetInt(string jsonPath)
         {
-            int num = 0;
-            int.TryParse(jsonPath, out num);
-            return num;
+            return configService.GetInt(jsonPath);
         }
 
         public string GetString(string jsonPath)
         {
-            return ReadValue(jsonPath);
+            return configService.GetString(jsonPath);
         }
 
         public bool GetBool(string jsonPath)
         {
-            var value = ReadValue(jsonPath);
-            if(value == "true")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return configService.GetBool(jsonPath);
         }
-
-        #region Private
-
-        private string ReadValue(string jsonPath)
-        {
-            var value = config.SelectToken(jsonPath);
-            if(value != null)
-            {
-                return value.ToString();
-            }
-            return String.Empty;
-        }
-
-
-
-        #endregion
     }
 }
