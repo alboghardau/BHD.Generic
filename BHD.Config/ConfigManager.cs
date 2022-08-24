@@ -13,9 +13,16 @@ namespace MServ.Auth.Config
 {
     public class ConfigManager : IConfigManager     
     {
+        private static ConfigManager instance;
+
+        protected ConfigManager()
+        {
+
+        }
+
         private IConfigService configService;
 
-        public ConfigManager()
+        public static InstanceConfiIInsgManager()
         {
             configService = new ConfigService(new ConfigFile());
         }
