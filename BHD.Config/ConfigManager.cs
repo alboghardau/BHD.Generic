@@ -32,21 +32,41 @@ namespace MServ.Auth.Config
 
         //public methods
 
+        /// <summary>
+        /// Loads config file of json format from app folder
+        /// </summary>
+        /// <param name="configFileName">Config file name</param>
+        /// <returns></returns>
         public bool LoadConfiguration(string configFileName)
         {
             return configService.LoadConfiguration(configFileName);
         }
 
+        /// <summary>
+        /// Returns integer from config
+        /// </summary>
+        /// <param name="jsonPath">Internal json path</param>
+        /// <returns></returns>
         public int GetInt(string jsonPath)
         {
             return configService.GetInt(jsonPath);
         }
 
+        /// <summary>
+        /// Returns string from config
+        /// </summary>
+        /// <param name="jsonPath">Internal json path</param>
+        /// <returns></returns>
         public string GetString(string jsonPath)
         {
             return configService.GetString(jsonPath);
         }
 
+        /// <summary>
+        /// Returns bool from config
+        /// </summary>
+        /// <param name="jsonPath">Internal json path</param>
+        /// <returns></returns>
         public bool GetBool(string jsonPath)
         {
             return configService.GetBool(jsonPath);
