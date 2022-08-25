@@ -13,23 +13,28 @@ namespace MServ.Auth.Config
 {
     public class ConfigManager : IConfigManager     
     {
-        private static ConfigManager instance;
-
-        protected ConfigManager()
-        {
-
-        }
-
         private IConfigService configService;
 
-        public static InstanceConfiIInsgManager()
+        private static readonly Lazy<ConfigManager> config = new Lazy<ConfigManager>(() => new ConfigManager());
+
+        public static ConfigManager Instance
+        {
+            get
+            {
+                return config.Value;
+            }
+        }
+
+        private ConfigManager()
         {
             configService = new ConfigService(new ConfigFile());
         }
 
-        public void LoadConfiguration(string configFileName)
+        //public methods
+
+        public bool LoadConfiguration(string configFileName)
         {
-            configService.LoadConfiguration(configFileName);
+            return configService.LoadConfiguration(configFileName);
         }
 
         public int GetInt(string jsonPath)

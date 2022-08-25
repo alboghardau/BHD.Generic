@@ -26,4 +26,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BHD.Config\BHD.Config.csproj" />
+  </ItemGroup>
 </Project>

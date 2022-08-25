@@ -12,6 +12,6 @@ namespace MServ.Auth.Config.Interfaces
         /// Loads the configuration from json
         /// </summary>
         /// <param name="configFileName">Name of json file</param>
-        public void LoadConfiguration(string configFileName);
+        public bool LoadConfiguration(string configFileName);
     }
 }

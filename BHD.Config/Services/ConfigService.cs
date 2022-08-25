@@ -33,7 +33,7 @@ namespace BHD.Config.Services
         public bool GetBool(string jsonPath)
         {
             var value = ReadValue(jsonPath);
-            if (value == "true")
+            if (value == "True" || value == "true")
             {
                 return true;
             }
@@ -46,7 +46,8 @@ namespace BHD.Config.Services
         public int GetInt(string jsonPath)
         {
             int num = 0;
-            int.TryParse(jsonPath, out num);
+            var value = ReadValue(jsonPath);
+            int.TryParse(value, out num);
             return num;
         }
 
