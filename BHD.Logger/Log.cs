@@ -1,12 +1,12 @@
-﻿using InstantTriviaServer.Logger.Enums;
-using InstantTriviaServer.Logger.Events;
+﻿using BHD.Logger.Enums;
+using BHD.Logger.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InstantTriviaServer.Logger
+namespace BHD.Logger
 {
     public static class Log
     {

@@ -1,9 +1,9 @@
-﻿using InstantTriviaServer.Logger.Enums;
+﻿using BHD.Logger.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace InstantTriviaServer.Logger.Events
+namespace BHD.Logger.Events
 {
     public class LogEventArgs : EventArgs
     {
