@@ -14,7 +14,7 @@ namespace BHD.Config.Services
             _configFile = configFile;
         }
 
-        public bool LoadConfiguration(string configFileName)
+        public bool LoadConfigurationByFileName(string configFileName)
         {
             try
             {
@@ -26,6 +26,21 @@ namespace BHD.Config.Services
             catch(Exception ex)
             {
                 //TODO -add ex
+            }
+            return false;
+        }
+
+        public bool LoadConfigurationByPath(string fullPath)
+        {
+            try
+            {
+                var file = File.ReadAllText(fullPath);
+                _configFile.Configuration = JObject.Parse(file);
+                return true;
+            }
+            catch(Exception ex)
+            {
+
             }
             return false;
         }

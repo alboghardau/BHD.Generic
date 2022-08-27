@@ -1,7 +1,7 @@
 ﻿using BHD.Config.Interfaces;
 using BHD.Config.Models;
 using BHD.Config.Services;
-using MServ.Auth.Config.Interfaces;
+using BHD.Config.Interfaces;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MServ.Auth.Config
+namespace BHD.Config
 {
-    public class ConfigManager : IConfigManager     
+    public class ConfigManager  
     {
         private IConfigService configService;
 
@@ -30,16 +30,26 @@ namespace MServ.Auth.Config
             configService = new ConfigService(new ConfigFile());
         }
 
-        //public methods
+        #region Public
 
         /// <summary>
         /// Loads config file of json format from app folder
         /// </summary>
         /// <param name="configFileName">Config file name</param>
         /// <returns></returns>
-        public bool LoadConfiguration(string configFileName)
+        public bool LoadConfigurationByFileName(string configFileName)
         {
-            return configService.LoadConfiguration(configFileName);
+            return configService.LoadConfigurationByFileName(configFileName);
+        }
+
+        /// <summary>
+        /// Loads config file by path to json file given
+        /// </summary>
+        /// <param name="fullPath">Full path to json file</param>
+        /// <returns></returns>
+        public bool LoadConfigurationByPath(string fullPath)
+        {
+            return configService.LoadConfigurationByPath(fullPath);
         }
 
         /// <summary>
@@ -71,5 +81,7 @@ namespace MServ.Auth.Config
         {
             return configService.GetBool(jsonPath);
         }
+
+        #endregion
     }
 }
