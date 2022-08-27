@@ -1,7 +1,6 @@
 ﻿using BHD.Config.Interfaces;
 using BHD.Config.Models;
 using BHD.Config.Services;
-using BHD.Config.Interfaces;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
