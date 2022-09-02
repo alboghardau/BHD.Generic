@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BHD.Logger.Events
+namespace BHD.Logger.Models
 {
-    public class LogEventArgs : EventArgs
+    public class Log
     {
         public DateTime Time
         {
@@ -18,13 +18,13 @@ namespace BHD.Logger.Events
         public string ServerName { get; set; }
         public LogLevel LogLevel { get; set; }
 
-        public AppLevel AppLevel { get; set; }
+        public string App { get; set; }
         public string Message { get; set; }
 
-        public LogEventArgs(LogLevel logLevel, AppLevel appLevel, string message)
+        public Log(LogLevel logLevel, string appLevel, string message)
         {
             this.LogLevel = logLevel;
-            this.AppLevel = appLevel;
+            this.App = appLevel;
             this.Message = message;
         }
 

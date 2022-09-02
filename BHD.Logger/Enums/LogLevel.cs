@@ -8,9 +8,9 @@ namespace BHD.Logger.Enums
 {
     public enum LogLevel
     {
-        Trace,
-        Informational,
-        Warning,
-        Error
+        Trace = 1,
+        Informational = 2,
+        Warning = 3,
+        Error = 4
     }
 }

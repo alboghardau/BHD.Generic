@@ -5,4 +5,10 @@
     <AssemblyName>InstantTriviaServer.Logger</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
 </Project>

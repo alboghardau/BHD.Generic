@@ -10,8 +10,6 @@ namespace BHD.Logger
 {
     public class Logger
     {
-        public event EventHandler<LogEventArgs> LogEvent;
-
         private static readonly Lazy<Logger> logger = new Lazy<Logger>(() => new Logger());
 
         public static Logger Instance
@@ -25,17 +23,6 @@ namespace BHD.Logger
         private Logger()
         {
 
-        }
-
-        /// <summary>
-        /// Trigger log event
-        /// </summary>
-        /// <param name="logLevel"></param>
-        /// <param name="appLevel"></param>
-        /// <param name="message"></param>
-        private void AddLog(LogLevel logLevel, AppLevel appLevel, string message)
-        {
-            LogEvent(null, new LogEventArgs(logLevel, appLevel, message));
         }
 
         /// <summary>
@@ -75,6 +62,11 @@ namespace BHD.Logger
         public void Trace(AppLevel appLevel, string message)
         {
             AddLog(LogLevel.Trace, appLevel, message);
+        }
+
+        private void AddLog(LogLevel logLevel, AppLevel appLevel, string message)
+        {
+            LogEvent(null, new LogEventArgs(logLevel, appLevel, message));
         }
 
     }
