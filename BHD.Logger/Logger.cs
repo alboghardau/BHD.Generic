@@ -8,9 +8,24 @@ using System.Threading.Tasks;
 
 namespace BHD.Logger
 {
-    public static class Log
+    public class Logger
     {
-        public static event EventHandler<LogEventArgs> LogEvent;
+        public event EventHandler<LogEventArgs> LogEvent;
+
+        private static readonly Lazy<Logger> logger = new Lazy<Logger>(() => new Logger());
+
+        public static Logger Instance
+        {
+            get
+            {
+                return logger.Value;
+            }
+        }
+
+        private Logger()
+        {
+
+        }
 
         /// <summary>
         /// Trigger log event
@@ -18,7 +33,7 @@ namespace BHD.Logger
         /// <param name="logLevel"></param>
         /// <param name="appLevel"></param>
         /// <param name="message"></param>
-        private static void AddLog(LogLevel logLevel, AppLevel appLevel, string message)
+        private void AddLog(LogLevel logLevel, AppLevel appLevel, string message)
         {
             LogEvent(null, new LogEventArgs(logLevel, appLevel, message));
         }
@@ -27,7 +42,7 @@ namespace BHD.Logger
         /// Log Informational
         /// </summary>
         /// <param name="message">Message to display</param>
-        public static void Info(AppLevel appLevel, string message)
+        public void Info(AppLevel appLevel, string message)
         {
             AddLog(LogLevel.Informational, appLevel, message);
         }
@@ -37,7 +52,7 @@ namespace BHD.Logger
         /// </summary>
         /// <param name="message"></param>
 
-        public static void Warn(AppLevel appLevel, string message)
+        public void Warn(AppLevel appLevel, string message)
         {
             AddLog(LogLevel.Warning, appLevel, message);
         }
@@ -47,7 +62,7 @@ namespace BHD.Logger
         /// </summary>
         /// <param name="message"></param>
 
-        public static void Error(AppLevel appLevel, string message)
+        public void Error(AppLevel appLevel, string message)
         {
             AddLog(LogLevel.Error, appLevel, message);
         }
@@ -57,7 +72,7 @@ namespace BHD.Logger
         /// </summary>
         /// <param name="message"></param>
 
-        public static void Trace(AppLevel appLevel, string message)
+        public void Trace(AppLevel appLevel, string message)
         {
             AddLog(LogLevel.Trace, appLevel, message);
         }
