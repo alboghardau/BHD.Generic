@@ -1,4 +1,6 @@
-﻿using MServ.Auth.Config.Interfaces;
+﻿using BHD.Config.Interfaces;
+using BHD.Config.Models;
+using BHD.Config.Services;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -6,53 +8,77 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MServ.Auth.Config
+namespace BHD.Config
 {
-    public class ConfigManager : IConfigManager     
+    public class ConfigManager  
     {
-        JObject config;
-        public ConfigManager()
+        private IConfigService configService;
+
+        private static readonly Lazy<ConfigManager> config = new Lazy<ConfigManager>(() => new ConfigManager());
+
+        public static ConfigManager Instance
         {
-            string path = Path.Combine(AppContext.BaseDirectory, "Config.json");
-            var file = File.ReadAllText(path);
-            config = JObject.Parse(file);
+            get
+            {
+                return config.Value;
+            }
         }
 
+        private ConfigManager()
+        {
+            configService = new ConfigService(new ConfigFile());
+        }
+
+        #region Public
+
+        /// <summary>
+        /// Loads config file of json format from app folder
+        /// </summary>
+        /// <param name="configFileName">Config file name</param>
+        /// <returns></returns>
+        public bool LoadConfigurationByFileName(string configFileName)
+        {
+            return configService.LoadConfigurationByFileName(configFileName);
+        }
+
+        /// <summary>
+        /// Loads config file by path to json file given
+        /// </summary>
+        /// <param name="fullPath">Full path to json file</param>
+        /// <returns></returns>
+        public bool LoadConfigurationByPath(string fullPath)
+        {
+            return configService.LoadConfigurationByPath(fullPath);
+        }
+
+        /// <summary>
+        /// Returns integer from config
+        /// </summary>
+        /// <param name="jsonPath">Internal json path</param>
+        /// <returns></returns>
         public int GetInt(string jsonPath)
         {
-            int num = 0;
-            int.TryParse(jsonPath, out num);
-            return num;
+            return configService.GetInt(jsonPath);
         }
 
+        /// <summary>
+        /// Returns string from config
+        /// </summary>
+        /// <param name="jsonPath">Internal json path</param>
+        /// <returns></returns>
         public string GetString(string jsonPath)
         {
-            return ReadValue(jsonPath);
+            return configService.GetString(jsonPath);
         }
 
+        /// <summary>
+        /// Returns bool from config
+        /// </summary>
+        /// <param name="jsonPath">Internal json path</param>
+        /// <returns></returns>
         public bool GetBool(string jsonPath)
         {
-            var value = ReadValue(jsonPath);
-            if(value == "true")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        #region Private
-
-        private string ReadValue(string jsonPath)
-        {
-            var value = config.SelectToken(jsonPath);
-            if(value != null)
-            {
-                return value.ToString();
-            }
-            return String.Empty;
+            return configService.GetBool(jsonPath);
         }
 
         #endregion
