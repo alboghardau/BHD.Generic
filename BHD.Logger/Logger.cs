@@ -1,5 +1,6 @@
 ﻿using BHD.Logger.Enums;
-using BHD.Logger.Events;
+using BHD.Logger.Models;
+using BHD.Logger.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,13 @@ namespace BHD.Logger
             }
         }
 
+        private LoggerService loggerService;
+        private LogConfig logConfig;
+
         private Logger()
         {
-
+            this.loggerService = new LoggerService(new List<Log>());
+            this.logConfig = new LogConfig();
         }
 
         /// <summary>
@@ -38,7 +43,6 @@ namespace BHD.Logger
         /// Log Warning
         /// </summary>
         /// <param name="message"></param>
-
         public void Warn(AppLevel appLevel, string message)
         {
             AddLog(LogLevel.Warning, appLevel, message);
@@ -48,7 +52,6 @@ namespace BHD.Logger
         /// Log Error
         /// </summary>
         /// <param name="message"></param>
-
         public void Error(AppLevel appLevel, string message)
         {
             AddLog(LogLevel.Error, appLevel, message);
@@ -58,15 +61,14 @@ namespace BHD.Logger
         /// Log Trace
         /// </summary>
         /// <param name="message"></param>
-
         public void Trace(AppLevel appLevel, string message)
         {
             AddLog(LogLevel.Trace, appLevel, message);
         }
 
         private void AddLog(LogLevel logLevel, AppLevel appLevel, string message)
-        {
-            LogEvent(null, new LogEventArgs(logLevel, appLevel, message));
+        {            
+            this.loggerService.AddLog(new Log(logLevel, appLevel, message));
         }
 
     }
