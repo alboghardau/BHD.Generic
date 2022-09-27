@@ -1,4 +1,5 @@
 ﻿using BHD.Logger.Enums;
+using BHD.Logger.Interfaces;
 using BHD.Logger.Models;
 using BHD.Logger.Services;
 using System;
@@ -21,13 +22,14 @@ namespace BHD.Logger
             }
         }
 
-        private LoggerService loggerService;
+        private ILoggerService loggerService;
         private LogConfig logConfig;
 
         private Logger()
         {
-            this.loggerService = new LoggerService(new List<Log>());
             this.logConfig = new LogConfig();
+
+            this.loggerService = new LoggerService(this.logConfig);
         }
 
         /// <summary>
@@ -67,9 +69,8 @@ namespace BHD.Logger
         }
 
         private void AddLog(LogLevel logLevel, AppLevel appLevel, string message)
-        {            
+        {
             this.loggerService.AddLog(new Log(logLevel, appLevel, message));
         }
-
     }
 }
