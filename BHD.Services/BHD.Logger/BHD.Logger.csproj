@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Services\" />
+    <None Remove="Models\" />
+    <None Remove="Controllers\" />
+    <None Remove="Interfaces\" />
+    <None Remove="Utils\" />
+    <None Remove="Mock\" />
+    <None Remove="Enums\" />
+    <None Remove="Utils\Writers\" />
+    <None Remove="DTOs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Models\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Mock\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Utils\Writers\" />
+    <Folder Include="DTOs\" />
+  </ItemGroup>
+</Project>
