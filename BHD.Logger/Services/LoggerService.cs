@@ -2,22 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using BHD.Logger.Enums;
+using BHD.Logger.Interfaces;
 using BHD.Logger.Models;
 
 namespace BHD.Logger.Services
 {
-    public class LoggerService
+    public class LoggerService : ILoggerService
     {
         private List<Log> logList;
+        private LogConfig _logConfig;
 
-        public LoggerService(List<Log> logList)
+        public LoggerService(LogConfig logConfig)
         {
-            this.logList = logList;
+            logList = new List<Log>();
+            _logConfig = logConfig;
         }
 
         public void AddLog(Log log)
         {
-            logList.Add(log);
+            if (_logConfig.IsLogLevelActive(log.LogLevel))
+            {
+                logList.Add(log);
+            }            
         }
 
         public void ClearLogs()
