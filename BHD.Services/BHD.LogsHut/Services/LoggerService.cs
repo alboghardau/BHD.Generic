@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using BHD.Logger.Models;
+using BHD.LogsHut.Models;
 
-namespace BHD.Logger.Services
+namespace BHD.LogsHut.Services
 {
 	public class LoggerService
     {

@@ -1,10 +1,10 @@
 ﻿using System;
-using BHD.Logger.DTOs;
-using BHD.Logger.Models;
-using BHD.Logger.Services;
+using BHD.LogsHut.DTOs;
+using BHD.LogsHut.Models;
+using BHD.LogsHut.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BHD.Logger.Controllers
+namespace BHD.LogsHut.Controllers
 {
 	[Route("api/{controller}/{action}")]
 	[ApiController]

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace BHD.Logger.Utils
+namespace BHD.LogsHut.Utils
 {
 	public static class ArrayUtils
 	{
