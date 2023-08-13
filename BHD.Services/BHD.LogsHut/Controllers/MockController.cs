@@ -1,9 +1,9 @@
 ﻿using System;
-using BHD.Logger.Interfaces;
-using BHD.Logger.Services;
+using BHD.LogsHut.Interfaces;
+using BHD.LogsHut.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BHD.Logger.Controllers
+namespace BHD.LogsHut.Controllers
 {
 	[Route("api/{controller}/{action}")]
 	[ApiController]

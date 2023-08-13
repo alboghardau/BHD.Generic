@@ -1,5 +1,5 @@
 ﻿using System;
-namespace BHD.Logger.Interfaces
+namespace BHD.LogsHut.Interfaces
 {
 	public interface IMockService
 	{

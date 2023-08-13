@@ -1,7 +1,7 @@
 ﻿using System;
-using BHD.Logger.Models;
+using BHD.LogsHut.Models;
 
-namespace BHD.Logger.Interfaces
+namespace BHD.LogsHut.Interfaces
 {
 	public interface ILogGenerator
 	{
