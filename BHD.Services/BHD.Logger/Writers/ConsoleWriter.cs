@@ -3,7 +3,7 @@ using BHD.Logger.Enums;
 using BHD.Logger.Interfaces;
 using BHD.Logger.Models;
 
-namespace BHD.Logger.Utils.Writers
+namespace BHD.Logger.Writers
 {
 	public class ConsoleWriter : ILogWriter
 

@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'BHD.Logger' " />
+  <ItemGroup>
+    <None Remove="Services\" />
+    <None Remove="Models\" />
+    <None Remove="Controllers\" />
+    <None Remove="Interfaces\" />
+    <None Remove="Utils\" />
+    <None Remove="Mock\" />
+    <None Remove="Enums\" />
+    <None Remove="DTOs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Models\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Mock\" />
+    <Folder Include="Enums\" />
+    <Folder Include="DTOs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BHD.Logger\BHD.Logger.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

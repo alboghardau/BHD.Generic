@@ -1,10 +1,11 @@
 ﻿using System;
-using BHD.Logger.Interfaces;
+using BHD.LogsHut.Interfaces;
 using BHD.Logger.Models;
-using BHD.Logger.Utils.Writers;
+using BHD.LogsHut.Utils.Writers;
 using Microsoft.AspNetCore.Mvc;
+using BHD.Logger.Interfaces;
 
-namespace BHD.Logger.Services
+namespace BHD.LogsHut.Services
 {
 	public class WriterService
 	{

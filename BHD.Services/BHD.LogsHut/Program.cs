@@ -1,7 +1,7 @@
-﻿using BHD.Logger.Interfaces;
-using BHD.Logger.Mock;
-using BHD.Logger.Services;
-using BHD.Logger.Utils;
+﻿using BHD.LogsHut.Interfaces;
+using BHD.LogsHut.Mock;
+using BHD.LogsHut.Services;
+using BHD.LogsHut.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
