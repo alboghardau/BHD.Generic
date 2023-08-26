@@ -1,5 +1,5 @@
 ﻿using System;
-namespace BHD.Logger.DTOs
+namespace BHD.LogsHut.DTOs
 {
 	public class NewLogsRequestDto
 	{

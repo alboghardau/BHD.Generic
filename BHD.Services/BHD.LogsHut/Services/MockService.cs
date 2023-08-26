@@ -1,8 +1,8 @@
 ﻿using System;
-using BHD.Logger.Interfaces;
-using BHD.Logger.Mock;
+using BHD.LogsHut.Interfaces;
+using BHD.LogsHut.Mock;
 
-namespace BHD.Logger.Services
+namespace BHD.LogsHut.Services
 {
 	public class MockService : IMockService
 	{

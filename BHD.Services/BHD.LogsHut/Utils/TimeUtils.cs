@@ -1,5 +1,5 @@
 ﻿using System;
-namespace BHD.Logger.Utils.Writers
+namespace BHD.LogsHut.Utils.Writers
 {
 	public static class TimeUtils
 	{
