@@ -1,7 +1,7 @@
 ﻿using System;
-using BHD.LogsHut.Enums;
+using BHD.Logger.Enums;
 
-namespace BHD.LogsHut.Models
+namespace BHD.Logger.Models
 {
 	public class Log
 	{

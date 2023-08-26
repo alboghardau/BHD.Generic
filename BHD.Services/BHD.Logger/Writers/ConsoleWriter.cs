@@ -1,9 +1,9 @@
 ﻿using System;
-using BHD.LogsHut.Enums;
-using BHD.LogsHut.Interfaces;
-using BHD.LogsHut.Models;
+using BHD.Logger.Enums;
+using BHD.Logger.Interfaces;
+using BHD.Logger.Models;
 
-namespace BHD.LogsHut.Utils.Writers
+namespace BHD.Logger.Writers
 {
 	public class ConsoleWriter : ILogWriter
 

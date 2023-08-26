@@ -1,5 +1,5 @@
 ﻿using System;
-namespace BHD.Logger
+namespace BHD.Loggers
 {
 	public static class Log
 	{

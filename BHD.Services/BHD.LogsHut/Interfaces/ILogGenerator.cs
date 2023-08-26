@@ -1,5 +1,5 @@
 ﻿using System;
-using BHD.LogsHut.Models;
+using BHD.Logger.Models;
 
 namespace BHD.LogsHut.Interfaces
 {
