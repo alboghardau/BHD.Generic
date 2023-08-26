@@ -1,6 +1,5 @@
 ﻿using System;
 using BHD.LogsHut.DTOs;
-using BHD.LogsHut.Models;
 using BHD.LogsHut.Services;
 using Microsoft.AspNetCore.Mvc;
 

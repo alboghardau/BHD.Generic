@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using BHD.LogsHut.Models;
+using BHD.Logger.Models;
 
 namespace BHD.LogsHut.Services
 {

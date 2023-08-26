@@ -1,5 +1,5 @@
 ﻿using System;
-namespace BHD.LogsHut.Enums
+namespace BHD.Logger.Enums
 {
 	public enum LogLevels
 	{
