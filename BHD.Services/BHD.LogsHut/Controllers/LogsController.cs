@@ -23,14 +23,14 @@ namespace BHD.LogsHut.Controllers
             return Ok(_loggerService.GetAllLogs());
         }
 
-		[ActionName("GetLogsCounter")]
+		[Route("count")]
 		[HttpGet]
 		public IActionResult GetLogsCounter()
 		{
 			return Ok(_loggerService.GetLogsNumber());
 		}
 
-		[ActionName("GetNewLogs")]
+		[Route("submit")]
 		[HttpPost]
 		public IActionResult GetNewLogs([FromBody] NewLogsRequestDto newLogsRequest)
 		{
