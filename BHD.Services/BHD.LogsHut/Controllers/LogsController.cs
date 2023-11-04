@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BHD.LogsHut.Controllers
 {
-	[Route("api/{controller}/{action}")]
+	[Route("api/logs/")]
 	[ApiController]
 	public class LogsController : ControllerBase
 	{
@@ -16,7 +16,7 @@ namespace BHD.LogsHut.Controllers
 			_loggerService = loggerService;
 		}
 
-		[ActionName("GetAllLogs")]
+		[Route("alllogs")]
 		[HttpGet]
         public IActionResult GetAllLogs()
         {
