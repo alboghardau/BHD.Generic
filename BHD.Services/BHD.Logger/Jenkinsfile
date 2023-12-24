@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Do Nothing') {
+            steps {
+                // This stage does nothing
+            }
+        }
+    }
+    
+    post {
+        always {
+            // This block is optional and can be used for cleanup or additional actions
+        }
+    }
+}
