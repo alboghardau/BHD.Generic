@@ -2,16 +2,22 @@ pipeline {
     agent any
     
     stages {
-        stage('Do Nothing') {
+        stage('Build') {
             steps {
-                echo 'Logging before SCM checkout'
+                script {
+                    sh 'dotnet restore'
+                    sh 'dotnet build'
+                }
             }
         }
     }
     
     post {
-        always {
-            echo 'Some bla lba'
+        success {
+            echo 'Build successful!'
+        }
+        failure {
+            echo 'Build failed!'
         }
     }
 }
