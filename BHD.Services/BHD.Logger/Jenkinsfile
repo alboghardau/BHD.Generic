@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'ls'
+                    sh 'cd BHD.Services/BHD.Logger'
                     sh 'dotnet restore'
                     sh 'dotnet build'
                 }
