@@ -6,6 +6,7 @@ pipeline {
             steps {
                 script {
                     sh 'cd BHD.Services/BHD.Logger'
+                    sh 'ls'
                     sh 'dotnet restore'
                     sh 'dotnet build'
                 }
