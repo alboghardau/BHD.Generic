@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+    
+    environment {
+        RELEASE_DIR = 'release'
+    }
+    
+    stages {
+        stage('Build') {
+            steps {
+                dir('BHD.Services/BHD.LogsHut') {
+                    script {
+                        sh 'ls'
+                        sh 'dotnet restore'
+                        sh 'dotnet build -c Release'  // Specify the Release configuration
+                    }
+                }
+            }
+        }
+
+        stage('Package') {
+            steps {
+                dir('BHD.Services/BHD.Logger') {
+                    script {
+                        // Create a directory for the release artifacts
+                        sh "mkdir -p ${env.RELEASE_DIR}"
+
+                        // Publish the application for deployment
+                        sh "dotnet publish -c Release -o ${env.RELEASE_DIR}"
+                    }
+                }
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo 'Build and packaging successful!'
+            archiveArtifacts "${env.RELEASE_DIR}/**/*"
+        }
+        failure {
+            echo 'Build failed!'
+        }
+    }
+}
