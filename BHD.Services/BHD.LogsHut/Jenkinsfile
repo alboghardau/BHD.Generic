@@ -20,7 +20,7 @@ pipeline {
 
         stage('Package') {
             steps {
-                dir('BHD.Services/BHD.Logger') {
+                dir('BHD.Services/BHD.LogsHut') {
                     script {
                         // Create a directory for the release artifacts
                         sh "mkdir -p ${env.RELEASE_DIR}"
@@ -29,14 +29,27 @@ pipeline {
                         sh "dotnet publish -c Release -o ${env.RELEASE_DIR}"
                     }
                 }
+                dir('BHD.Services/BHD.LogsHut'){
+                    script {
+                        // Your build and packaging steps go here
+
+                        def releaseContent = sh(script: "ls ${env.RELEASE_DIR}", returnStdout: true).trim()
+                        echo "Release content: ${releaseContent}"
+                    }
+                }
             }
         }
     }
     
     post {
+        // Your build and packaging steps go here
         success {
             echo 'Build and packaging successful!'
-            archiveArtifacts "${env.RELEASE_DIR}/**/*"
+            
+            // Archive the artifacts
+            dir('BHD.Services/BHD.LogsHut'){
+                archiveArtifacts artifacts: "${env.RELEASE_DIR}/*", allowEmptyArchive: true
+            }            
         }
         failure {
             echo 'Build failed!'
