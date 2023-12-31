@@ -2,15 +2,36 @@ pipeline {
     agent any
     
     environment {
+        GIT_CREDENTIALS_ID = 'github'
         RELEASE_DIR = 'release'
+        VERSION_FILE = 'version.txt'
+        APP_NAME = 'BHD.LogsHut'
+        newVersion = ''
     }
     
     stages {
+        stage('Read New Version') {
+            steps {
+                dir('BHD.Services/BHD.LogsHut') {
+                    script {
+                        def currentVersion = readFile(file: VERSION_FILE).trim()
+                        echo "Current Project Version: ${currentVersion}"   
+
+                        newVersion = incrementVersion(currentVersion)                    
+
+                        writeFile(file: VERSION_FILE, text: newVersion)                    
+                        echo "Building Project Version: ###${newVersion}###"
+
+                        currentBuild.description = "Version: ${newVersion}"
+                    }
+                }
+            }
+        }
+
         stage('Build') {
             steps {
                 dir('BHD.Services/BHD.LogsHut') {
                     script {
-                        sh 'ls'
                         sh 'dotnet restore'
                         sh 'dotnet build -c Release'  // Specify the Release configuration
                     }
@@ -22,19 +43,32 @@ pipeline {
             steps {
                 dir('BHD.Services/BHD.LogsHut') {
                     script {
-                        // Create a directory for the release artifacts
                         sh "mkdir -p ${env.RELEASE_DIR}"
 
-                        // Publish the application for deployment
                         sh "dotnet publish -c Release -o ${env.RELEASE_DIR}"
                     }
                 }
-                dir('BHD.Services/BHD.LogsHut'){
-                    script {
-                        // Your build and packaging steps go here
+            }
+        }
 
-                        def releaseContent = sh(script: "ls ${env.RELEASE_DIR}", returnStdout: true).trim()
-                        echo "Release content: ${releaseContent}"
+        stage('Save Artifacts') {
+            steps{
+                dir('BHD.Services/BHD.LogsHut'){
+                    archiveArtifacts artifacts: "${env.RELEASE_DIR}/*", allowEmptyArchive: true
+                }  
+            }
+        }
+
+        stage('Commit Version') {
+            steps{
+                dir('BHD.Services/BHD.LogsHut'){
+                    script{
+                        withCredentials([usernamePassword(credentialsId: env.GIT_CREDENTIALS_ID, usernameVariable: 'GIT_USR', passwordVariable: 'GIT_PASS')]) {
+                            sh "git add ${VERSION_FILE}"
+                            sh "git commit -m 'Increment ${APP_NAME} version to ${newVersion}'"
+                            sh "git tag -a ${APP_NAME}-${newVersion} -m 'Version ${newVersion} for ${APP_NAME}'"
+                            sh "git push https://${GIT_USR}:${GIT_PASS}@github.com/alboghardau/BHD.Generic.git HEAD:master --no-verify"
+                        }
                     }
                 }
             }
@@ -42,17 +76,18 @@ pipeline {
     }
     
     post {
-        // Your build and packaging steps go here
         success {
-            echo 'Build and packaging successful!'
-            
-            // Archive the artifacts
-            dir('BHD.Services/BHD.LogsHut'){
-                archiveArtifacts artifacts: "${env.RELEASE_DIR}/*", allowEmptyArchive: true
-            }            
+            echo "Build and packaging successful! ${APP_NAME} Version: ${newVersion}"          
         }
         failure {
             echo 'Build failed!'
         }
     }
+}
+
+def incrementVersion(version) {
+    // Implement your version increment logic
+    def segments = version.split('\\.')
+    segments[2] = (segments[2].toInteger() + 1).toString()
+    return segments.join('.')
 }
