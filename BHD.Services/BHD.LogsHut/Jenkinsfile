@@ -1,6 +1,10 @@
 pipeline {
     agent any
     
+    options {
+        copyArtifactPermission('*')
+    }
+
     environment {
         GIT_CREDENTIALS_ID = 'github'
         RELEASE_DIR = 'release'
