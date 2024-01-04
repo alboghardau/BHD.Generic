@@ -50,6 +50,8 @@ pipeline {
                         sh "mkdir -p ${env.RELEASE_DIR}"
 
                         sh "dotnet publish -c Release -o ${env.RELEASE_DIR}"
+
+                        sh "cp Dockerfile release/"
                     }
                 }
             }
