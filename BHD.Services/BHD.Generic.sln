@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHD.Logger", "BHD.Logger\BH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHD.LogsHut", "BHD.LogsHut\BHD.LogsHut.csproj", "{50BFD2C2-479C-4227-84A7-0FA1614A0E41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHD.Common", "BHD.Common\BHD.Common.csproj", "{18595F3B-F334-4828-B9CE-2A783DCCCC4C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHD.Utils", "BHD.Common\BHD.Utils.csproj", "{18595F3B-F334-4828-B9CE-2A783DCCCC4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
