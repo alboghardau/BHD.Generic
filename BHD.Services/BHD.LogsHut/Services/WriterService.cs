@@ -1,7 +1,6 @@
 ﻿using System;
 using BHD.LogsHut.Interfaces;
 using BHD.Logger.Models;
-using BHD.LogsHut.Utils.Writers;
 using Microsoft.AspNetCore.Mvc;
 using BHD.Logger.Interfaces;
 

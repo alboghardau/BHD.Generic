@@ -2,7 +2,8 @@
 using BHD.Logger.Enums;
 using BHD.LogsHut.Interfaces;
 using BHD.Logger.Models;
-using BHD.LogsHut.Utils;
+using BHD.Utils.Enumerable;
+using BHD.Utils.Array;
 
 namespace BHD.LogsHut.Mock
 {
