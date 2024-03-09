@@ -1,4 +1,4 @@
-import { LogLevel } from "../enums/log-level";
+import { LogLevel } from "../enums/loglevel.enum";
 
 export interface Log {
     time: Date;

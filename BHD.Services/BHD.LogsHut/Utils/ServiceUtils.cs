@@ -4,7 +4,6 @@ using BHD.Logger.Writers;
 using BHD.LogsHut.Interfaces;
 using BHD.LogsHut.Mock;
 using BHD.LogsHut.Services;
-using BHD.LogsHut.Utils.Writers;
 
 namespace BHD.LogsHut.Utils
 {

@@ -6,7 +6,6 @@ using BHD.Logger.Models;
 namespace BHD.Logger.Writers
 {
 	public class ConsoleWriter : ILogWriter
-
 	{
         public void WriteLog(Log log)
         {

@@ -7,15 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Interfaces\" />
-    <None Remove="Models\" />
-    <None Remove="Enums\" />
-    <None Remove="Writers\" />
+    <None Remove="Array\" />
+    <None Remove="Time\" />
+    <None Remove="Enumerable\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Models\" />
-    <Folder Include="Enums\" />
-    <Folder Include="Writers\" />
+    <Folder Include="Array\" />
+    <Folder Include="Time\" />
+    <Folder Include="Enumerable\" />
   </ItemGroup>
 </Project>
