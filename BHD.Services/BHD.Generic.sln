@@ -1,15 +1,16 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 25.0.1705.7
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHD.Config", "BHD.Config\BHD.Config.csproj", "{80850076-11EB-44CA-9E21-C36DB4C60BBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BHD.Config", "BHD.Config\BHD.Config.csproj", "{80850076-11EB-44CA-9E21-C36DB4C60BBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHD.Logger", "BHD.Logger\BHD.Logger.csproj", "{1EACDCEA-3711-4EA6-91BA-BC71C37913C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BHD.Logger.Library", "BHD.Logger.Library\BHD.Logger.Library.csproj", "{1EACDCEA-3711-4EA6-91BA-BC71C37913C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHD.LogsHut", "BHD.LogsHut\BHD.LogsHut.csproj", "{50BFD2C2-479C-4227-84A7-0FA1614A0E41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BHD.LogsHut", "BHD.LogsHut\BHD.LogsHut.csproj", "{50BFD2C2-479C-4227-84A7-0FA1614A0E41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHD.Utils", "BHD.Common\BHD.Utils.csproj", "{18595F3B-F334-4828-B9CE-2A783DCCCC4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BHD.Utils", "BHD.Common\BHD.Utils.csproj", "{18595F3B-F334-4828-B9CE-2A783DCCCC4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logger", "Logger", "{915A360F-815D-4369-AC07-6F6B054986DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +18,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9E91B08A-18DE-4E69-8888-43574D207CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E91B08A-18DE-4E69-8888-43574D207CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E91B08A-18DE-4E69-8888-43574D207CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E91B08A-18DE-4E69-8888-43574D207CB4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{80850076-11EB-44CA-9E21-C36DB4C60BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{80850076-11EB-44CA-9E21-C36DB4C60BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80850076-11EB-44CA-9E21-C36DB4C60BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -40,6 +37,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1EACDCEA-3711-4EA6-91BA-BC71C37913C4} = {915A360F-815D-4369-AC07-6F6B054986DD}
+		{50BFD2C2-479C-4227-84A7-0FA1614A0E41} = {915A360F-815D-4369-AC07-6F6B054986DD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7FF77D75-A6C6-4F43-927B-4F5B88399A29}
