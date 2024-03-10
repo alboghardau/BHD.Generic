@@ -1,12 +1,11 @@
-﻿using System;
-using BHD.Logger.Enums;
-using BHD.Logger.Interfaces;
-using BHD.Logger.Models;
+﻿using BHD.Logger.Library.Enums;
+using BHD.Logger.Library.Interfaces;
+using BHD.Logger.Library.Models;
 
-namespace BHD.Logger.Writers
+namespace BHD.Logger.Library.Writers
 {
-	public class ConsoleWriter : ILogWriter
-	{
+    public class ConsoleWriter : ILogWriter
+    {
         public void WriteLog(Log log)
         {
             Console.ForegroundColor = GetColor(log);
@@ -16,17 +15,17 @@ namespace BHD.Logger.Writers
 
         private ConsoleColor GetColor(Log log)
         {
-            switch(log.LogLevel)
+            switch (log.LogLevel)
             {
-                case LogLevels.Verbose:
+                case LogLevel.Verbose:
                     return ConsoleColor.White;
-                case LogLevels.Info:
+                case LogLevel.Information:
                     return ConsoleColor.White;
-                case LogLevels.Trace:
+                case LogLevel.Trace:
                     return ConsoleColor.White;
-                case LogLevels.Warning:
+                case LogLevel.Warning:
                     return ConsoleColor.DarkYellow;
-                case LogLevels.Error:
+                case LogLevel.Error:
                     return ConsoleColor.Red;
             }
 

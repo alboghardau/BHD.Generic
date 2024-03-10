@@ -1,11 +1,9 @@
-﻿using System;
-using BHD.Logger.Enums;
-using BHD.LogsHut.Interfaces;
-using BHD.Logger.Models;
-using BHD.Utils.Enumerable;
+﻿using BHD.Logger.Library.Models;
 using BHD.Utils.Array;
+using BHD.Utils.Enumerable;
+using BHD.Logger.Library.Enums;
 
-namespace BHD.LogsHut.Mock
+namespace BHD.LogsSimulator.Mock
 {
     public class LogGenerator : ILogGenerator
     {
@@ -19,18 +17,17 @@ namespace BHD.LogsHut.Mock
             var log = new Log();
 
             log.Time = DateTime.UtcNow;
-            log.LogLevel = this.GetRandomLogLevel();
-            log.Service = this.GetRandomService();
-            log.Message = this.GetRandomMessage();
-            log.IpAdress = this.GetRandomIP();
-            log.User = this.GetRandomUser();
+            log.LogLevel = GetRandomLogLevel();
+            log.Source = GetRandomService();
+            log.Message = GetRandomMessage();
+            log.IpAdress = GetRandomIP();
 
             return log;
         }
 
-        private LogLevels GetRandomLogLevel()
+        private LogLevel GetRandomLogLevel()
         {
-            return EnumUtils.GetRandomEnumElement<LogLevels>();
+            return EnumUtils.GetRandomEnumElement<LogLevel>();
         }
 
         private string GetRandomService()
@@ -67,7 +64,7 @@ namespace BHD.LogsHut.Mock
 
         private string GetRandomUser()
         {
-            var users = new[] { "Dorel234" , "Gogu4242", "Mike4321", "Lisa34234"};
+            var users = new[] { "Dorel234", "Gogu4242", "Mike4321", "Lisa34234" };
 
             return ArrayUtils.GetRandomElement<string>(users);
         }

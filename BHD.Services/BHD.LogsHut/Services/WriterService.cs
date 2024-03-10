@@ -1,7 +1,5 @@
 ﻿using System;
-using BHD.LogsHut.Interfaces;
 using BHD.Logger.Models;
-using Microsoft.AspNetCore.Mvc;
 using BHD.Logger.Interfaces;
 
 namespace BHD.LogsHut.Services

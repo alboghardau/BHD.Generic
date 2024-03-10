@@ -1,11 +1,10 @@
-﻿using System;
-using BHD.Logger.Models;
+﻿using BHD.Logger.Library.Models;
 
-namespace BHD.Logger.Interfaces
+namespace BHD.Logger.Library.Interfaces
 {
-	public interface ILogWriter
-	{
-		public void WriteLog(Log log);
-	}
+    public interface ILogWriter
+    {
+        public void WriteLog(Log log);
+    }
 }
 
