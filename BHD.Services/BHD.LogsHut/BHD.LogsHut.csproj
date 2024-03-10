@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'BHD.Logger' " />
+
+  <ItemGroup>
+    <Compile Remove="Enums\**" />
+    <Compile Remove="Models\**" />
+    <Content Remove="Enums\**" />
+    <Content Remove="Models\**" />
+    <EmbeddedResource Remove="Enums\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Enums\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
   <ItemGroup>
     <None Remove="Services\" />
     <None Remove="Models\" />
@@ -19,12 +30,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
-    <Folder Include="Models\" />
     <Folder Include="Controllers\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Utils\" />
-    <Folder Include="Mock\" />
-    <Folder Include="Enums\" />
     <Folder Include="DTOs\" />
   </ItemGroup>
   <ItemGroup>
