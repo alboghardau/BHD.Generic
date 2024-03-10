@@ -7,12 +7,36 @@ namespace BHD.Logger.Models
 	{
 		public DateTime Time { get; set; }
         public String? Message { get; set; }
-        public LogLevels LogLevel { get; set; }
+        public LogLevel LogLevel { get; set; }
         public Exception? Exception { get; set; }
-        //holds the App Name, Server Name, etc.
-        public String? Source { get; set; }
+        public String? Source { get; set; }             //holds the App Name, Server Name, etc.
         public String? IpAdress { get; set; }
 
+        public Log(string message, LogLevel logLevel)
+        {
+            Time = DateTime.UtcNow;
+            Message = message;
+            LogLevel = logLevel;
+        }
+
+        public Log(string? message, LogLevel logLevel, Exception? exception)
+        {
+            Time = DateTime.UtcNow;
+            Message = message;
+            LogLevel = logLevel;
+            Exception = exception;
+        }
+
+        public Log(string? message, LogLevel logLevel, Exception? exception, string? source, string? ipAdress)
+        {
+            Time = DateTime.UtcNow;
+            Message = message;
+            LogLevel = logLevel;
+            Exception = exception;
+            Source = source;
+            IpAdress = ipAdress;
+        }
+        
         public string GetFormatedShort()
         {
             return String.Format("### {0} ###" +
@@ -22,6 +46,8 @@ namespace BHD.Logger.Models
 				this.Source,
 				this.Message);
         }
+
+
     }
 }
 

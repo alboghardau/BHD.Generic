@@ -18,15 +18,15 @@ namespace BHD.Logger.Writers
         {
             switch(log.LogLevel)
             {
-                case LogLevels.Verbose:
+                case LogLevel.Verbose:
                     return ConsoleColor.White;
-                case LogLevels.Info:
+                case LogLevel.Information:
                     return ConsoleColor.White;
-                case LogLevels.Trace:
+                case LogLevel.Trace:
                     return ConsoleColor.White;
-                case LogLevels.Warning:
+                case LogLevel.Warning:
                     return ConsoleColor.DarkYellow;
-                case LogLevels.Error:
+                case LogLevel.Error:
                     return ConsoleColor.Red;
             }
 

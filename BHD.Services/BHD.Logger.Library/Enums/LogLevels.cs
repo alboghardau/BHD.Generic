@@ -1,13 +1,14 @@
 ﻿using System;
 namespace BHD.Logger.Enums
 {
-	public enum LogLevels
+	public enum LogLevel
 	{
 		Verbose,
 		Trace,
-		Info,
+		Information,
 		Warning,
-		Error
+		Error,
+		Fatal
 	}
 }
 
