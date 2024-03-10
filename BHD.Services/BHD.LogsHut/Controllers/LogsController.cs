@@ -32,9 +32,9 @@ namespace BHD.LogsHut.Controllers
 
 		[Route("submit")]
 		[HttpPost]
-		public IActionResult GetNewLogs([FromBody] NewLogsRequestDto newLogsRequest)
+		public IActionResult GetNewLogs([FromBody] NewLogsRequestDto[] newLogsRequest)
 		{
-			return Ok(_loggerService.GetLogsAfterTime(newLogsRequest.Time));
+			return Ok();
 		}
     }
 }

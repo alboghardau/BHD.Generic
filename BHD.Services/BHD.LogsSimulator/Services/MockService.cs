@@ -1,21 +1,19 @@
-﻿using System;
-using BHD.LogsHut.Interfaces;
-using BHD.LogsHut.Mock;
+﻿using BHD.LogsSimulator.Mock;
 
-namespace BHD.LogsHut.Services
+namespace BHD.LogsSimulator.Services
 {
-	public class MockService : IMockService
-	{
-		private ILogGenerator logGenerator;
-        private LoggerService loggerService;
+    public class MockService : IMockService
+    {
+        private ILogGenerator logGenerator;
+        private ILogger loggerService;
         private Thread? mockThread;
         private bool stopRequested = false;
 
-		public MockService(ILogGenerator logGenerator, LoggerService loggerService)
-		{
-			this.logGenerator = logGenerator;
+        public MockService(ILogGenerator logGenerator,  loggerService)
+        {
+            this.logGenerator = logGenerator;
             this.loggerService = loggerService;
-		}
+        }
 
         public void Start()
         {
