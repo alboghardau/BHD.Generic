@@ -1,33 +1,34 @@
 ﻿using BHD.LogsSimulator.Mock;
+using ILogger = BHD.Logger.Library.Interfaces.ILogger;
 
 namespace BHD.LogsSimulator.Services
 {
     public class MockService : IMockService
     {
-        private ILogGenerator logGenerator;
-        private ILogger loggerService;
+        private readonly ILogGenerator _logGenerator;
+        private readonly ILogger _logger;
         private Thread? mockThread;
         private bool stopRequested = false;
 
-        public MockService(ILogGenerator logGenerator,  loggerService)
+        public MockService(ILogGenerator logGenerator, ILogger logger)
         {
-            this.logGenerator = logGenerator;
-            this.loggerService = loggerService;
+            _logGenerator = logGenerator;
+            _logger = logger;
         }
 
         public void Start()
         {
-            this.stopRequested = false;
-            this.mockThread = new Thread(GenerateLog);
-            this.mockThread.Start();
+            stopRequested = false;
+            mockThread = new Thread(GenerateLog);
+            mockThread.Start();
         }
 
         public void Stop()
         {
-            if (this.mockThread != null)
+            if (mockThread != null)
             {
                 stopRequested = true;
-                this.mockThread.Join();
+                mockThread.Join();
             }
         }
 
@@ -35,8 +36,8 @@ namespace BHD.LogsSimulator.Services
         {
             while (!stopRequested)
             {
-                var log = this.logGenerator.GetRandomLog();
-                this.loggerService.AddLog(log);
+                var log = _logGenerator.GetRandomLog();
+                _logger.Add(log);
 
                 //TO DO configurable
                 Thread.Sleep(1000);

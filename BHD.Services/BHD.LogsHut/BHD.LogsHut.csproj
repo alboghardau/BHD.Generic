@@ -10,12 +10,16 @@
 
   <ItemGroup>
     <Compile Remove="Enums\**" />
+    <Compile Remove="Interfaces\**" />
     <Compile Remove="Models\**" />
     <Content Remove="Enums\**" />
+    <Content Remove="Interfaces\**" />
     <Content Remove="Models\**" />
     <EmbeddedResource Remove="Enums\**" />
+    <EmbeddedResource Remove="Interfaces\**" />
     <EmbeddedResource Remove="Models\**" />
     <None Remove="Enums\**" />
+    <None Remove="Interfaces\**" />
     <None Remove="Models\**" />
   </ItemGroup>
   <ItemGroup>
@@ -31,7 +35,6 @@
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Utils\" />
     <Folder Include="DTOs\" />
   </ItemGroup>
