@@ -1,7 +1,7 @@
 ﻿using BHD.Logger.Library.Models;
 using BHD.Utils.Array;
 using BHD.Utils.Enumerable;
-using BHD.Logger.Library.Enums;
+using LogLevel = BHD.Logger.Library.Enums.LogLevel;
 
 namespace BHD.LogsSimulator.Mock
 {

@@ -18,13 +18,13 @@ namespace BHD.Logger.Library.Core
         {
             if (config != null)
             {
-                IsVerboseActive = config.GetValue("Logging:Verbose", false);
-                IsTraceActive = config.GetValue("Logging:Trace", false);
-                IsInformationActive = config.GetValue("Logging:Information", false);
-                IsWarningActive = config.GetValue("Logging:Warning", false);
-                IsErrorActive = config.GetValue("Logging:Error", false);
-                IsFatalActive = config.GetValue("Logging:Fatal", false);
-                ShouldWriteToConsole = config.GetValue("Logging.WriteToConsole", false);
+                IsVerboseActive = config.GetValue("Logger:Verbose", false);
+                IsTraceActive = config.GetValue("Logger:Trace", false);
+                IsInformationActive = config.GetValue("Logger:Information", false);
+                IsWarningActive = config.GetValue("Logger:Warning", false);
+                IsErrorActive = config.GetValue("Logger:Error", false);
+                IsFatalActive = config.GetValue("Logger:Fatal", false);
+                ShouldWriteToConsole = config.GetValue("Logger.WriteToConsole", false);
             }
         }
 
