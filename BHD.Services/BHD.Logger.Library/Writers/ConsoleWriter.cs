@@ -15,21 +15,15 @@ namespace BHD.Logger.Library.Writers
 
         private ConsoleColor GetColor(Log log)
         {
-            switch (log.LogLevel)
+            return log.LogLevel switch
             {
-                case LogLevel.Verbose:
-                    return ConsoleColor.White;
-                case LogLevel.Information:
-                    return ConsoleColor.White;
-                case LogLevel.Trace:
-                    return ConsoleColor.White;
-                case LogLevel.Warning:
-                    return ConsoleColor.DarkYellow;
-                case LogLevel.Error:
-                    return ConsoleColor.Red;
-            }
-
-            return ConsoleColor.White;
+                LogLevel.Verbose => ConsoleColor.White,
+                LogLevel.Information => ConsoleColor.White,
+                LogLevel.Trace => ConsoleColor.White,
+                LogLevel.Warning => ConsoleColor.DarkYellow,
+                LogLevel.Error => ConsoleColor.Red,
+                _ => ConsoleColor.White
+            };
         }
     }
 }
