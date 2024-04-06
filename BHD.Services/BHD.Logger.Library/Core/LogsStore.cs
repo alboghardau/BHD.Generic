@@ -7,29 +7,32 @@ namespace BHD.Logger.Library.Core
 {
     public class LogsStore
     {
-        private ConcurrentQueue<Log> logsQueue;
-        private readonly ILogWriter logWriter;
+        private readonly LoggerConfig _loggerConfig;
+        private readonly ConcurrentQueue<Log> _logsQueue = new ConcurrentQueue<Log>();
+        private readonly IConsoleWriter _consoleWriter;
 
-        public LogsStore()
+        public LogsStore(LoggerConfig loggerConfig)
         {
-            logsQueue = new ConcurrentQueue<Log>();
-            logWriter = new ConsoleWriter();
+            _consoleWriter = new ConsoleWriter();
+            _loggerConfig = loggerConfig;
         }
 
         public void Add(Log log)
         {
-            logWriter.WriteLog(log);
-            logsQueue.Enqueue(log);
+            if(_loggerConfig.ShouldWriteToConsole)
+                _consoleWriter.WriteLog(log);
+            
+            _logsQueue.Enqueue(log);
         }
 
         public void Clear()
         {
-            logsQueue.Clear();
+            _logsQueue.Clear();
         }
 
         public List<Log> GetLogs()
         {
-            return logsQueue.ToList();
+            return _logsQueue.ToList();
         }
     }
 }
