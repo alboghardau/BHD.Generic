@@ -6,26 +6,31 @@ namespace BHD.Logger.Library.Core
     public class LoggerConfig
     {
         //LogLevels activation
-        public bool IsVerboseActive { get; private set; }
-        public bool IsTraceActive { get; private set; }
-        public bool IsInformationActive { get; private set; }
-        public bool IsWarningActive { get; private set; }
-        public bool IsErrorActive { get; private set; }
-        public bool IsFatalActive { get; private set; }
+        private bool IsVerboseActive { get; set; }
+        private bool IsTraceActive { get; set; }
+        private bool IsInformationActive { get; set; }
+        private bool IsWarningActive { get; set; }
+        private bool IsErrorActive { get; set; }
+        private bool IsFatalActive { get; set; }
         public bool ShouldWriteToConsole { get; private set; }
+        public bool ShouldWriteToServer { get; private set; }
+        public string? IpAddress { get; private set; }
+        public string? Port { get; private set; }
 
-        public void InitConfig(IConfiguration config)
+        public LoggerConfig(IConfiguration config)
         {
-            if (config != null)
-            {
-                IsVerboseActive = config.GetValue("Logger:Verbose", false);
-                IsTraceActive = config.GetValue("Logger:Trace", false);
-                IsInformationActive = config.GetValue("Logger:Information", false);
-                IsWarningActive = config.GetValue("Logger:Warning", false);
-                IsErrorActive = config.GetValue("Logger:Error", false);
-                IsFatalActive = config.GetValue("Logger:Fatal", false);
-                ShouldWriteToConsole = config.GetValue("Logger.WriteToConsole", false);
-            }
+            var loggerConfig = config.GetSection("Logger");
+            
+            IsVerboseActive = loggerConfig.GetValue("Levels:Verbose", false);
+            IsTraceActive = loggerConfig.GetValue("Levels:Trace", false);
+            IsInformationActive = loggerConfig.GetValue("Levels:Information", false);
+            IsWarningActive = loggerConfig.GetValue("Levels:Warning", false);
+            IsErrorActive = loggerConfig.GetValue("Levels:Error", false);
+            IsFatalActive = loggerConfig.GetValue("Levels:Fatal", false);
+            ShouldWriteToConsole = loggerConfig.GetValue("WriteToConsole", false);
+            ShouldWriteToServer = loggerConfig.GetValue("WriteToServer", false);
+            IpAddress = loggerConfig.GetValue(("IpAddress"), "");
+            Port = loggerConfig.GetValue(("Port"), "");
         }
 
         public bool IsLogLevelActive(LogLevel logLevel)

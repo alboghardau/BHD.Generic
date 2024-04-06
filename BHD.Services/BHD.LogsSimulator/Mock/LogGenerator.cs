@@ -20,7 +20,7 @@ namespace BHD.LogsSimulator.Mock
             log.LogLevel = GetRandomLogLevel();
             log.Source = GetRandomService();
             log.Message = GetRandomMessage();
-            log.IpAdress = GetRandomIP();
+            log.IpAddress = GetRandomIP();
 
             return log;
         }

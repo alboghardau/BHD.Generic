@@ -2,7 +2,7 @@
 
 namespace BHD.Logger.Library.Interfaces
 {
-    public interface ILogWriter
+    public interface IConsoleWriter
     {
         public void WriteLog(Log log);
     }

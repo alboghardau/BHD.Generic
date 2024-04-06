@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddLogger();
+builder.Services.AddLogger(builder.Configuration);
 
 builder.Services.AddScoped<IMockService, MockService>();
 builder.Services.AddScoped<ILogGenerator, LogGenerator>();
