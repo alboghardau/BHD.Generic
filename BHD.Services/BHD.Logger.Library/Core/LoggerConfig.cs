@@ -16,6 +16,8 @@ namespace BHD.Logger.Library.Core
         public bool ShouldWriteToServer { get; private set; }
         public string? IpAddress { get; private set; }
         public string? Port { get; private set; }
+        public int SendDelay { get; private set; }
+        public int BulkSize { get; private set; }
 
         public LoggerConfig(IConfiguration config)
         {
@@ -31,6 +33,8 @@ namespace BHD.Logger.Library.Core
             ShouldWriteToServer = loggerConfig.GetValue("WriteToServer", false);
             IpAddress = loggerConfig.GetValue(("IpAddress"), "");
             Port = loggerConfig.GetValue(("Port"), "");
+            SendDelay = loggerConfig.GetValue("SendDelay", 2500);
+            BulkSize = loggerConfig.GetValue("BulkSize", 500);
         }
 
         public bool IsLogLevelActive(LogLevel logLevel)
