@@ -10,4 +10,9 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BHD.Common\BHD.Utils.csproj" />
+    <ProjectReference Include="..\BHD.Logger.Library\BHD.Logger.Library.csproj" />
+  </ItemGroup>
+
 </Project>

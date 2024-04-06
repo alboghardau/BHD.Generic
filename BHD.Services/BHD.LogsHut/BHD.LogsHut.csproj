@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,6 +7,21 @@
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'BHD.Logger' " />
+
+  <ItemGroup>
+    <Compile Remove="Enums\**" />
+    <Compile Remove="Interfaces\**" />
+    <Compile Remove="Models\**" />
+    <Content Remove="Enums\**" />
+    <Content Remove="Interfaces\**" />
+    <Content Remove="Models\**" />
+    <EmbeddedResource Remove="Enums\**" />
+    <EmbeddedResource Remove="Interfaces\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Enums\**" />
+    <None Remove="Interfaces\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
   <ItemGroup>
     <None Remove="Services\" />
     <None Remove="Models\" />
@@ -19,15 +34,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
-    <Folder Include="Models\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Utils\" />
-    <Folder Include="Mock\" />
-    <Folder Include="Enums\" />
     <Folder Include="DTOs\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BHD.Logger.Library\BHD.Logger.Library.csproj" />
     <ProjectReference Include="..\BHD.Logger\BHD.Logger.Library.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
