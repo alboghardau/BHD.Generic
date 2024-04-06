@@ -5,15 +5,15 @@ using System.Collections.Concurrent;
 
 namespace BHD.Logger.Library.Core
 {
-    public class LogsStore
+    public class LogsStorage
     {
         private readonly LoggerConfig _loggerConfig;
         private readonly ConcurrentQueue<Log> _logsQueue = new ConcurrentQueue<Log>();
         private readonly IConsoleWriter _consoleWriter;
         private readonly HttpWriter _httpWriter;
-        private readonly Timer _timer;
+        private readonly Timer? _timer;
 
-        public LogsStore(LoggerConfig loggerConfig, IConsoleWriter consoleWriter, HttpWriter httpWriter)
+        public LogsStorage(LoggerConfig loggerConfig, IConsoleWriter consoleWriter, HttpWriter httpWriter)
         {
             _consoleWriter = consoleWriter;
             _httpWriter = httpWriter;
