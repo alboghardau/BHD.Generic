@@ -42,7 +42,7 @@
     <Folder Include="DTOs\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BHD.Logger.Library\BHD.Logger.Library.csproj" />
+    <ProjectReference Include="..\BHD.Logger.Core\BHD.Logger.Core.csproj" />
     <ProjectReference Include="..\BHD.Common\BHD.Utils.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>

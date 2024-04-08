@@ -7,12 +7,12 @@ namespace BHD.Logger.Library
 {
     public class Logger : ILogger
     {
-        private readonly LogsStorage _logsStorage;
+        private readonly LoggerStorage _loggerStorage;
         private readonly LoggerConfig _config;
 
-        public Logger(LogsStorage logsStorage, LoggerConfig loggerConfig)
+        public Logger(LoggerStorage loggerStorage, LoggerConfig loggerConfig)
         {
-            _logsStorage = logsStorage;
+            _loggerStorage = loggerStorage;
             _config = loggerConfig;
         }
 
@@ -31,21 +31,21 @@ namespace BHD.Logger.Library
 
         public void Add(Log log)
         {
-            _logsStorage.Add(log);
+            _loggerStorage.Add(log);
         }
 
         private void RecordLog(LogLevel logLevel, string message)
         {
             if (!_config.IsLogLevelActive(logLevel)) return;
             var log = new Log(message, logLevel);
-            _logsStorage.Add(log);
+            _loggerStorage.Add(log);
         }
         private void RecordLog(LogLevel logLevel, string format, params object[] args)
         {
             if (!_config.IsLogLevelActive(logLevel)) return;
             var message = string.Format(format, args);
             var log = new Log(message, logLevel);
-            _logsStorage.Add(log);
+            _loggerStorage.Add(log);
         }
     }
 }

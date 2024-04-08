@@ -4,7 +4,7 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BHD.Config", "BHD.Config\BHD.Config.csproj", "{80850076-11EB-44CA-9E21-C36DB4C60BBC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BHD.Logger.Library", "BHD.Logger.Library\BHD.Logger.Library.csproj", "{1EACDCEA-3711-4EA6-91BA-BC71C37913C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BHD.Logger.Core", "BHD.Logger.Core\BHD.Logger.Core.csproj", "{1EACDCEA-3711-4EA6-91BA-BC71C37913C4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BHD.LogsHut", "BHD.LogsHut\BHD.LogsHut.csproj", "{50BFD2C2-479C-4227-84A7-0FA1614A0E41}"
 EndProject

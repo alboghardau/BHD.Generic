@@ -5,7 +5,7 @@ using System.Collections.Concurrent;
 
 namespace BHD.Logger.Library.Core
 {
-    public class LogsStorage
+    public class LoggerStorage
     {
         private readonly LoggerConfig _loggerConfig;
         private readonly ConcurrentQueue<Log> _logsQueue = new ConcurrentQueue<Log>();
@@ -13,21 +13,26 @@ namespace BHD.Logger.Library.Core
         private readonly HttpWriter _httpWriter;
         private readonly Timer? _timer;
 
-        public LogsStorage(LoggerConfig loggerConfig, IConsoleWriter consoleWriter, HttpWriter httpWriter)
+        public LoggerStorage(LoggerConfig loggerConfig, 
+            IConsoleWriter consoleWriter, 
+            HttpWriter httpWriter)
         {
             _consoleWriter = consoleWriter;
             _httpWriter = httpWriter;
             _loggerConfig = loggerConfig;
 
-            if (_loggerConfig.ShouldWriteToServer)
+            if (_loggerConfig.EnableBroadcast)
             {
-                _timer = new Timer(SendLogs, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(_loggerConfig.SendDelay));
+                _timer = new Timer(BroadcastLogs, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(_loggerConfig.BroadcastInterval));
+            }else if (_loggerConfig.EnableDeepStorage)
+            {
+                
             }
         }
 
         public void Add(Log log)
         {
-            if(_loggerConfig.ShouldWriteToConsole)
+            if(_loggerConfig.EnableConsoleWriting)
                 _consoleWriter.WriteLog(log);
             
             _logsQueue.Enqueue(log);
@@ -43,7 +48,12 @@ namespace BHD.Logger.Library.Core
             return _logsQueue.ToList();
         }
 
-        private async void SendLogs(object? state)
+        private async void StoreDeep(object? state)
+        {
+            
+        }
+
+        private async void BroadcastLogs(object? state)
         {
             await Task.Run(async () =>
             {
