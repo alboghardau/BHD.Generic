@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BHD.Common\BHD.Utils.csproj" />
-    <ProjectReference Include="..\BHD.Logger.Library\BHD.Logger.Library.csproj" />
+    <ProjectReference Include="..\BHD.Logger.Core\BHD.Logger.Core.csproj" />
   </ItemGroup>
 
 </Project>

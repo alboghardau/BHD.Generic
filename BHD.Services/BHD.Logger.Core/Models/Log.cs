@@ -3,7 +3,7 @@ using BHD.Logger.Library.Enums;
 
 namespace BHD.Logger.Library.Models
 {
-	public class Log
+	public class Log : IComparable<Log>
 	{
 		public DateTime Time { get; set; }
         public string? Message { get; set; }
@@ -49,6 +49,11 @@ namespace BHD.Logger.Library.Models
 				this.Time.ToLocalTime(),
 				this.Source,
 				this.Message);
+        }
+
+        public int CompareTo(Log? other)
+        {
+            return other != null ? Time.CompareTo(other.Time) : 0;
         }
     }
 }
