@@ -1,39 +1,33 @@
-﻿using System;
-using BHD.LogsHut.DTOs;
-using BHD.LogsHut.Services;
+﻿using System.Diagnostics;
+using BHD.Logger.Library.Core;
+using BHD.Logger.Library.Models;
 using Microsoft.AspNetCore.Mvc;
+using ILogger = BHD.Logger.Library.Interfaces.ILogger;
 
 namespace BHD.LogsHut.Controllers
 {
-	[Route("api/logs/")]
+	[Route("api/v1/logs")]
 	[ApiController]
 	public class LogsController : ControllerBase
 	{
-		LoggerService _loggerService;
-
-		public LogsController(LoggerService loggerService)
+		private readonly LoggerStorage _loggerStorage;
+		private readonly ILogger _logger;
+		
+		public LogsController(LoggerStorage loggerStorage, ILogger logger)
 		{
-			_loggerService = loggerService;
+			_loggerStorage = loggerStorage;
+			_logger = logger;
 		}
 
-		[Route("alllogs")]
-		[HttpGet]
-        public IActionResult GetAllLogs()
-        {
-            return Ok(_loggerService.GetAllLogs());
-        }
-
-		[Route("count")]
-		[HttpGet]
-		public IActionResult GetLogsCounter()
-		{
-			return Ok(_loggerService.GetLogsNumber());
-		}
-
-		[Route("submit")]
 		[HttpPost]
-		public IActionResult GetNewLogs([FromBody] NewLogsRequestDto[] newLogsRequest)
+		public IActionResult Post(List<Log> logs)
 		{
+			var stopwatch = new Stopwatch();
+			
+			_loggerStorage.AddMany(logs);
+			
+			_logger.Trace($"Received {logs.Count} logs in {stopwatch.ElapsedMilliseconds} ms");
+			
 			return Ok();
 		}
     }

@@ -21,6 +21,10 @@
     <None Remove="Enums\**" />
     <None Remove="Interfaces\**" />
     <None Remove="Models\**" />
+    <Compile Remove="release\**" />
+    <EmbeddedResource Remove="release\**" />
+    <Content Remove="release\**" />
+    <None Remove="release\**" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Services\" />
@@ -33,18 +37,21 @@
     <None Remove="DTOs\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
     <Folder Include="Controllers\" />
     <Folder Include="Utils\" />
     <Folder Include="DTOs\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BHD.Logger.Library\BHD.Logger.Library.csproj" />
-    <ProjectReference Include="..\BHD.Logger\BHD.Logger.Library.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
+    <ProjectReference Include="..\BHD.Logger.Core\BHD.Logger.Core.csproj" />
     <ProjectReference Include="..\BHD.Common\BHD.Utils.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="release\web.config" />
+    <_ContentIncludedByDefault Remove="release\appsettings.Development.json" />
+    <_ContentIncludedByDefault Remove="release\appsettings.json" />
+    <_ContentIncludedByDefault Remove="release\BHD.LogsHut.deps.json" />
+    <_ContentIncludedByDefault Remove="release\BHD.LogsHut.runtimeconfig.json" />
   </ItemGroup>
 </Project>

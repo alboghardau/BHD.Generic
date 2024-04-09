@@ -13,9 +13,11 @@ namespace BHD.Logger.Library
             services.AddHttpClient("LoggerClient");
             
             services.AddSingleton<ILogger, Logger>();
-            services.AddSingleton<LogsStore>();
+            services.AddSingleton<LoggerStorage>();
             services.AddSingleton(new LoggerConfig(configuration));
-            services.AddScoped<HttpWriter>();
+            services.AddSingleton<IConsoleWriter, ConsoleWriter>();
+            services.AddTransient<HttpWriter>();
+            services.AddSingleton<LoggerDeepStorage>();
         }
     }
 }
