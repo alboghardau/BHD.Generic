@@ -40,7 +40,7 @@ namespace BHD.LogsSimulator.Services
                 _logger.Add(log);
 
                 //TO DO configurable
-                Thread.Sleep(1000);
+                Thread.Sleep(1);
             }
         }
     }
