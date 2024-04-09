@@ -17,6 +17,7 @@ namespace BHD.Logger.Library
             services.AddSingleton(new LoggerConfig(configuration));
             services.AddSingleton<IConsoleWriter, ConsoleWriter>();
             services.AddTransient<HttpWriter>();
+            services.AddSingleton<LoggerDeepStorage>();
         }
     }
 }

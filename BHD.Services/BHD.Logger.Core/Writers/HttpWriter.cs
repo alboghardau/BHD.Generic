@@ -19,7 +19,7 @@ public class HttpWriter
     {
         try
         {
-            var url = $"https://{_loggerConfig.IpAddress}:{_loggerConfig.Port}/api/v1/logs";
+            var url = $"http://{_loggerConfig.IpAddress}:{_loggerConfig.Port}/api/v1/logs";
             var httpClient = _httpClientFactory.CreateClient("LoggerClient");
 
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(logs);
