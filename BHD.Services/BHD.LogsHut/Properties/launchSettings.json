@@ -3,7 +3,7 @@
   "profiles": {
     "BHD.LogsHut": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "applicationUrl": "https://localhost:23952;http://localhost:36175",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
