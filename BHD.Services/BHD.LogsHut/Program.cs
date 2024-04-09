@@ -1,9 +1,13 @@
-﻿using BHD.LogsHut.Utils;
+﻿using BHD.Logger.Library;
+using BHD.LogsHut.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.UseUrls("http://localhost:5000");
+
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddLogger(builder.Configuration);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", corsPolicyBuilder =>
@@ -22,9 +26,9 @@ var app = builder.Build();
 
 app.UseCors("AllowAll");
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
+// app.UseHttpsRedirection();
+//
+// app.UseAuthorization();
 
 app.MapControllers();
 
