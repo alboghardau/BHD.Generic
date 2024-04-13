@@ -63,3 +63,4 @@ aio/content/examples/.DS_Store
 .angular/
 
 yarn.lock
+package-lock.json
