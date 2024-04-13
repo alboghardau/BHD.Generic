@@ -70,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "bhd-logger-web:build:production"
+              "buildTarget": "bhd-logger-web:build:production"
             },
             "development": {
-              "browserTarget": "bhd-logger-web:build:development"
+              "buildTarget": "bhd-logger-web:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bhd-logger-web:build"
+            "buildTarget": "bhd-logger-web:build"
           }
         },
         "test": {
