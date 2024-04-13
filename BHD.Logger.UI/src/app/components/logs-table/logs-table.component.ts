@@ -15,9 +15,9 @@ export class LogsTableComponent implements OnInit {
     public logs: Log[] = [];
 
     ngOnInit(): void {
-        setInterval(() => {
-            this.updateLogs();
-        }, 2000);
+        // setInterval(() => {
+        //     this.updateLogs();
+        // }, 2000);
     }
 
     private updateLogs() {
