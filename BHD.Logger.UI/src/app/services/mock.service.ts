@@ -15,12 +15,12 @@ export class MockService {
     public startMock() {
         this.httpClient
             .post(this.config.baseUrl + START_MOCK_API, "")
-            .subscribe((response) => {});
+            .subscribe(() => {});
     }
 
     public stopMock() {
         this.httpClient
             .post(this.config.baseUrl + STOP_MOCK_API, "")
-            .subscribe((response) => {});
+            .subscribe(() => {});
     }
 }
