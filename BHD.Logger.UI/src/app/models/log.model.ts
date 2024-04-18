@@ -2,11 +2,10 @@ import { LogLevel } from "../enums/loglevel.enum";
 
 export interface Log {
     time: Date;
-    logLevel?: LogLevel;
-    service?: string;
     message: string;
-    methodName?: string;
+    logLevel?: LogLevel;
+    source?: string;
     ipAdress?: string;
-    user?: string;
-    callStack?: string;
+    exceptionMessage?: string;
+    exceptionStack?: string;
 }
