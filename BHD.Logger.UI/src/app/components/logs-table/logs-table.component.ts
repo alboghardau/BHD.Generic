@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Log } from "src/app/models/log.model";
 import { LogsService } from "src/app/services/logs.service";
+import {TableModule} from "primeng/table";
 
 @Component({
     selector: "logs-table",
