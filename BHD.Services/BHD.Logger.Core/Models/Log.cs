@@ -6,9 +6,10 @@ namespace BHD.Logger.Library.Models
 	public class Log : IComparable<Log>
 	{
 		public DateTime Time { get; set; }
-        public string? Message { get; set; }
+        public string Message { get; set; }
         public LogLevel LogLevel { get; set; }
-        public Exception? Exception { get; set; }
+        public string? ExceptionMessage { get; set; }
+        public string? ExceptionStack { get; set; }
         public string? Source { get; set; }             //holds the App Name, Server Name, etc.
         public string? IpAddress { get; set; }
 
@@ -19,20 +20,22 @@ namespace BHD.Logger.Library.Models
             LogLevel = logLevel;
         }
 
-        public Log(string? message, LogLevel logLevel, Exception? exception)
+        public Log(string message, LogLevel logLevel, Exception exception)
         {
             Time = DateTime.UtcNow;
             Message = message;
             LogLevel = logLevel;
-            Exception = exception;
+            ExceptionMessage = exception.Message;
+            ExceptionStack = exception.StackTrace;
         }
 
-        public Log(string? message, LogLevel logLevel, Exception? exception, string? source, string? ipAddress)
+        public Log(string message, LogLevel logLevel, Exception exception, string source, string? ipAddress)
         {
             Time = DateTime.UtcNow;
             Message = message;
             LogLevel = logLevel;
-            Exception = exception;
+            ExceptionMessage = exception.Message;
+            ExceptionStack = exception.StackTrace;
             Source = source;
             IpAddress = ipAddress;
         }

@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { Log } from "../models/log.model";
 import { ConfigurationService } from "./configuration.service";
 import { LogsDataService } from "../data-access/logs-data.service";
-import { lastValueFrom } from "rxjs";
 
 @Injectable({
     providedIn: "root",

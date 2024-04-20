@@ -7,19 +7,19 @@ namespace BHD.Logger.Library.Writers;
 public class HttpWriter
 {
     private readonly IHttpClientFactory _httpClientFactory;
-    private readonly LoggerConfig _loggerConfig;
+    private readonly LoggerConfig _config;
     
     public HttpWriter(IHttpClientFactory httpClientFactory, LoggerConfig loggerConfig)
     {
         _httpClientFactory = httpClientFactory;
-        _loggerConfig = loggerConfig;
+        _config = loggerConfig;
     }
 
     public async Task<bool> SendLogsAsync(List<Log> logs)
     {
         try
         {
-            var url = $"http://{_loggerConfig.IpAddress}:{_loggerConfig.Port}/api/v1/logs";
+            var url = $"http://{_config.IpAddress}:{_config.Port}/api/v1/logs";
             var httpClient = _httpClientFactory.CreateClient("LoggerClient");
 
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(logs);
