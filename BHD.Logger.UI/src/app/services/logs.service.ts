@@ -16,7 +16,7 @@ export class LogsService {
 
     public getAllLogs(): Log[] {
         if (this.logs.length == 0) {
-            this.retrieveAllLogs();
+            
         }
 
         return this.logs;
@@ -30,16 +30,5 @@ export class LogsService {
         this.logs = [];
     }
 
-    private retrieveAllLogs() {
-        this.logsDataService
-            .getAllLogs()
-            .then((data) => {
-                this.logs = data;
-            })
-            .catch((error) => {
-                console.error(error);
-                throw error;
-            });
-        console.log(this.logs);
-    }
+    
 }

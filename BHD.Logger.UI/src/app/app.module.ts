@@ -15,14 +15,14 @@ export function initConfiguration(service: ConfigurationService) {
 @NgModule({
     declarations: [AppComponent],
     imports: [AppRoutingModule, AppLayoutModule,],
-    // providers: [
-    //     {
-    //         provide: APP_INITIALIZER,
-    //         useFactory: initConfiguration,
-    //         deps: [ConfigurationService],
-    //         multi: true,
-    //     },
-    // ],
+    providers: [
+        {
+            provide: APP_INITIALIZER,
+            useFactory: initConfiguration,
+            deps: [ConfigurationService],
+            multi: true,
+        },
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -3,5 +3,4 @@ export const START_MOCK_API = "/api/mock/StartMock/";
 export const STOP_MOCK_API = "/api/mock/StopMock/";
 
 //LOGS API
-
-export const GET_ALL_LOGS = "/api/logs/GetAllLogs/";
+export const GET_LIVE_LOGS = "/api/v1/logs/live";

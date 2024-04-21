@@ -28,9 +28,9 @@ public class LoggerDeepStorage
     /// <summary>
     /// Returns the last logs after a specified DateTime
     /// </summary>
-    public List<Log> GetLogsAfterDateTime(DateTime requestedTime)
+    public List<Log> GetLogsAfterDateTime(DateTime requestedTime, bool isFirstCall = false)
     {
-        return _sortedSet.Where(log => log.Time > requestedTime).ToList();
+        return isFirstCall ? _sortedSet.Take(1000).ToList() : _sortedSet.Where(log => log.Time > requestedTime).ToList() ;
     }
 
     public List<Log> GetLogsBatch(int skip, int take)
