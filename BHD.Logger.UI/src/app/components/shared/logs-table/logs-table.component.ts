@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { Log } from "src/app/models/log.model";
 import { LogsService } from "src/app/services/logs.service";
 import {TableModule} from "primeng/table";
@@ -8,20 +8,12 @@ import {TableModule} from "primeng/table";
     templateUrl: "./logs-table.component.html",
     styleUrls: ["./logs-table.component.scss"],
 })
-export class LogsTableComponent implements OnInit {
+export class LogsTableComponent{
     constructor(private logsService: LogsService) {}
 
     public tableSize: string = "p-datatable-sm";
 
-    public logs: Log[] = [];
+    @Input() logs: Log[] = [];
 
-    ngOnInit(): void {
-        // setInterval(() => {
-        //     this.updateLogs();
-        // }, 2000);
-    }
 
-    private updateLogs() {
-        this.logs = this.logsService.getAllLogs();
-    }
 }
