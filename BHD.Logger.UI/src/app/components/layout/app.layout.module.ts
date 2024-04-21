@@ -12,7 +12,6 @@ import { RippleModule } from 'primeng/ripple';
 import { RouterModule } from '@angular/router';
 import { AppTopBarComponent } from './app.topbar.component';
 import { AppFooterComponent } from './app.footer.component';
-import { AppConfigModule } from './config/config.module';
 import { AppLayoutComponent } from "./app.layout.component";
 
 @NgModule({
@@ -32,8 +31,7 @@ import { AppLayoutComponent } from "./app.layout.component";
         RadioButtonModule,
         InputSwitchModule,
         RippleModule,
-        RouterModule,
-        AppConfigModule
+        RouterModule
     ],
     exports: [AppLayoutComponent]
 })
