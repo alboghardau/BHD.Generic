@@ -56,7 +56,7 @@ namespace BHD.Logger.Library.Models
 
         public int CompareTo(Log? other)
         {
-            return other != null ? Time.CompareTo(other.Time) : 0;
+            return other != null ? -Time.CompareTo(other.Time) : 1;
         }
     }
 }

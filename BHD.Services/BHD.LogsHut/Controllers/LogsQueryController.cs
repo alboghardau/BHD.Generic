@@ -19,7 +19,7 @@ namespace BHD.LogsHut.Controllers
         public IActionResult GetLogsAfterTime(LiveLogsRequestDto logsRequest)
         {
             var logs = _deepStorage.GetLogsAfterDateTime(logsRequest.RequestTime, logsRequest.IsFirstCall);
-            var lastElement = logs.LastOrDefault();
+            var lastElement = logs.FirstOrDefault();
             var latestTime = lastElement?.Time ?? DateTime.Now; 
 
             var response = new LiveLogsResponseDto()
