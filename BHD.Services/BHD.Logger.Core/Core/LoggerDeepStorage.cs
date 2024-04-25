@@ -19,18 +19,21 @@ public class LoggerDeepStorage
     /// </summary>
     public void AddLogs(List<Log> logs)
     {
-        foreach (var log in logs)
+        lock (_sortedSet)
         {
-            _sortedSet.Add(log);
-        }
+            foreach (var log in logs)
+            {
+                _sortedSet.Add(log);
+            }
+        } 
     }
 
     /// <summary>
     /// Returns the last logs after a specified DateTime
     /// </summary>
-    public List<Log> GetLogsAfterDateTime(DateTime requestedTime, bool isFirstCall = false)
+    public List<Log> GetLogsAfterDateTime(DateTime requestedTime)
     {
-        return isFirstCall ? _sortedSet.Take(1000).ToList() : _sortedSet.Where(log => log.Time > requestedTime).ToList() ;
+        return _sortedSet.Where(log => log.Time > requestedTime).ToList() ;
     }
 
     public List<Log> GetLogsBatch(int skip, int take)
