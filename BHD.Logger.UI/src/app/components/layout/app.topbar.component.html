@@ -6,6 +6,11 @@
 
     <div #topbarmenu class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
         
+        <button *ngIf="transferService.isLivePage()" class="p-link layout-topbar-button" (click)="transferService.toogleLivePooling()">
+            <i class="pi" [ngClass]="{'pi-play': !transferService.isLiveRunning() , 'pi-pause': transferService.isLiveRunning()}"></i>
+            <span>Calendar</span>
+        </button>
+
         <button class="p-link layout-topbar-button" (click)="layoutService.toggleDarkMode()">
             <i class="pi" [ngClass]="{'pi-moon': !layoutService.isDarkModeActive, 'pi-sun': layoutService.isDarkModeActive}"></i>
             <span>Calendar</span>

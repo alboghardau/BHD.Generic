@@ -17,13 +17,16 @@ export class LogsDataService {
         private config: ConfigurationService
     ) {}
 
-    public getLiveLogs(requestTime: Date, isFirstCall: boolean = false): Observable<LiveResponseDto> {        
+    public getLiveLogs(
+        requestTime: Date,
+        isFirstCall: boolean = false
+    ): Observable<LiveResponseDto> {
         const url = this.config.baseUrl + GET_LIVE_LOGS;
         const body: LiveRequestDto = {
             requestTime: requestTime,
-            isFirstCall: isFirstCall
-        }
-        
+            isFirstCall: isFirstCall,
+        };
+
         return this.http.post<LiveResponseDto>(url, body);
     }
 }
