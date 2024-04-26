@@ -5,8 +5,6 @@ import { TableModule } from "primeng/table";
 @NgModule({
     imports: [TableModule],
     declarations: [LogsTableComponent],
-    exports: [LogsTableComponent]
+    exports: [LogsTableComponent],
 })
-export class SharedComponentsModule{
-
-}
+export class SharedComponentsModule {}

@@ -3,7 +3,6 @@ import { EMPTY, Subscription, switchMap, timer } from "rxjs";
 import { LogsDataService } from "src/app/data-access/logs-data.service";
 import { LiveResponseDto } from "src/app/models/dtos/live-response-dto.model";
 import { Log } from "src/app/models/log.model";
-import { LogsService } from "src/app/services/logs.service";
 import { TransferService } from "src/app/services/transfer.service";
 
 @Component({
@@ -22,14 +21,13 @@ export class LiveViewComponent implements OnInit, OnDestroy {
         private logsService: LogsDataService,
         private transferService: TransferService
     ) {
-        this.togglePooling();
-    }
-
-    ngOnInit(): void {
         this.latestTime = this.getUtcMinusOne();
         this.fetchData();
         this.isFirstCall = false;
+        this.togglePooling();
     }
+
+    ngOnInit(): void {}
 
     ngOnDestroy(): void {
         this.stopPolling();
