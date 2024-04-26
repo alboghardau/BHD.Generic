@@ -21,13 +21,14 @@ export class LiveViewComponent implements OnInit, OnDestroy {
         private logsService: LogsDataService,
         private transferService: TransferService
     ) {
-        this.latestTime = this.getUtcMinusOne();
-        this.fetchData();
-        this.isFirstCall = false;
         this.togglePooling();
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.latestTime = this.getUtcMinusOne();
+        this.fetchData();
+        this.isFirstCall = false;
+    }
 
     ngOnDestroy(): void {
         this.stopPolling();
