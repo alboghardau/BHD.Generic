@@ -15,7 +15,7 @@ export class LiveViewComponent implements OnInit, OnDestroy {
     private isFirstCall = true;
     private latestTime: Date = new Date();
     private readonly pollingInterval = 1000; // 2 seconds
-    private readonly maxLogsCount = 1000;
+    private readonly maxLogsCount = 25;
 
     constructor(
         private logsService: LogsDataService,
@@ -28,10 +28,12 @@ export class LiveViewComponent implements OnInit, OnDestroy {
         this.latestTime = this.getUtcMinusOne();
         this.fetchData();
         this.isFirstCall = false;
+        this.transferService.isLivePage.set(true);
     }
 
     ngOnDestroy(): void {
         this.stopPolling();
+        this.transferService.isLivePage.set(false);
     }
 
     private togglePooling(): void {
