@@ -1,14 +1,52 @@
 <div class="layout-topbar">
-    <a class="layout-topbar-logo" routerLink="">
-        <img src="assets/layout/images/cabin.png" alt="logo">
-        <span>Logs Hut</span>
-    </a>
+    <div class="layout-topbar-logo">
+        <img src="assets/layout/images/cabin.png" alt="logo" />
+        <span>LogsHut</span>
+    </div>
 
-    <div #topbarmenu class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
-        <button class="p-link layout-topbar-button">
-            <i class="pi pi-moon"></i>
+    <button class="p-link layout-topbar-button" routerLink="/dashboard">
+        <i class="pi pi-desktop"></i>
+    </button>
+    <div class="font-bold">Dashboard</div>
+
+    <button class="p-link layout-topbar-button" routerLink="/">
+        <i class="pi pi-eye"></i>
+    </button>
+    <div class="font-bold">Live View</div>
+
+    <button class="p-link layout-topbar-button">
+        <i class="pi pi-search"></i>
+    </button>
+    <div class="font-bold">Search</div>
+
+    <div
+        #topbarmenu
+        class="layout-topbar-menu"
+        [ngClass]="{
+            'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible
+        }">
+        <!-- LiveView - Play Pause Button -->
+        <button *ngIf="transferService.isLivePage()" class="p-link layout-topbar-button" (click)="transferService.toogleLivePooling()">
+            <i
+                class="pi"
+                [ngClass]="{
+                    'pi-play': !transferService.isLiveRunning(),
+                    'pi-pause': transferService.isLiveRunning()
+                }"></i>
             <span>Calendar</span>
         </button>
+
+        <!-- Dark Mode Button -->
+        <button class="p-link layout-topbar-button" (click)="layoutService.toggleDarkMode()">
+            <i
+                class="pi"
+                [ngClass]="{
+                    'pi-moon': !layoutService.isDarkModeActive,
+                    'pi-sun': layoutService.isDarkModeActive
+                }"></i>
+            <span>Calendar</span>
+        </button>
+
         <!-- <button class="p-link layout-topbar-button">
             <i class="pi pi-user"></i>
             <span>Profile</span>

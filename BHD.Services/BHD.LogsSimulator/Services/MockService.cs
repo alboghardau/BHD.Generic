@@ -38,9 +38,9 @@ namespace BHD.LogsSimulator.Services
             {
                 var log = _logGenerator.GetRandomLog();
                 _logger.Add(log);
-
+              
                 //TO DO configurable
-                Thread.Sleep(1);
+                Thread.Sleep(250);
             }
         }
     }
