@@ -1,17 +1,17 @@
 using BHD.Logger.Library.Models;
 
-namespace BHD.Logger.Library.Core;
+namespace BHD.Logger.DeepCore.Storage;
 
 /// <summary>
 /// Class to be used only by LogsHut to store all logs from different sources
 /// </summary>
-public class LoggerDeepStorage
+public class DeepStorage
 {
     private readonly SortedSet<Log> _sortedSet = new();
 
-    public LoggerDeepStorage()
+    public DeepStorage()
     {
-        
+
     }
 
     /// <summary>
@@ -25,7 +25,7 @@ public class LoggerDeepStorage
             {
                 _sortedSet.Add(log);
             }
-        } 
+        }
     }
 
     /// <summary>

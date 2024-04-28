@@ -10,7 +10,7 @@
         </ng-template>
         <ng-template pTemplate="body" let-log>
             <tr>
-                <td>{{ log.time }}</td>
+                <td>{{ log.time | date: 'HH:mm:ss:SSS' }}</td>
                 <td>{{ getLogLevelByValue(log.logLevel) }}</td>
                 <td>{{ log.source }}</td>
                 <td>{{ log.message }}</td>

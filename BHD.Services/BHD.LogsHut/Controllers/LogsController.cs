@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
+using BHD.Logger.DeepCore.Storage;
 using BHD.Logger.Library.Core;
+using BHD.Logger.Library.Interfaces;
 using BHD.Logger.Library.Models;
 using Microsoft.AspNetCore.Mvc;
 using ILogger = BHD.Logger.Library.Interfaces.ILogger;
@@ -10,12 +12,12 @@ namespace BHD.LogsHut.Controllers
 	[ApiController]
 	public class LogsController : ControllerBase
 	{
-		private readonly LoggerStorage _loggerStorage;
+		private readonly IBuffer _buffer;
 		private readonly ILogger _logger;
 		
-		public LogsController(LoggerStorage loggerStorage, ILogger logger)
+		public LogsController(IBuffer loggerStorage, ILogger logger)
 		{
-			_loggerStorage = loggerStorage;
+            _buffer = loggerStorage;
 			_logger = logger;
 		}
 
@@ -23,8 +25,8 @@ namespace BHD.LogsHut.Controllers
 		public IActionResult Post(List<Log> logs)
 		{
 			var stopwatch = new Stopwatch();
-			
-			_loggerStorage.AddMany(logs);
+
+            _buffer.AddMany(logs);
 			
 			_logger.Trace($"Received {logs.Count} logs in {stopwatch.ElapsedMilliseconds} ms");
 			

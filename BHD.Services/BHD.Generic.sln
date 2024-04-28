@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logger", "Logger", "{915A36
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BHD.LogsSimulator", "BHD.LogsSimulator\BHD.LogsSimulator.csproj", "{5BDE5675-319A-466B-A70B-DE531E626D4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHD.Logger.DeepCore", "BHD.Logger.DeepCore\BHD.Logger.DeepCore.csproj", "{C59782BD-E869-4042-BA56-BE525EC160CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{5BDE5675-319A-466B-A70B-DE531E626D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BDE5675-319A-466B-A70B-DE531E626D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BDE5675-319A-466B-A70B-DE531E626D4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C59782BD-E869-4042-BA56-BE525EC160CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C59782BD-E869-4042-BA56-BE525EC160CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C59782BD-E869-4042-BA56-BE525EC160CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C59782BD-E869-4042-BA56-BE525EC160CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{1EACDCEA-3711-4EA6-91BA-BC71C37913C4} = {915A360F-815D-4369-AC07-6F6B054986DD}
 		{50BFD2C2-479C-4227-84A7-0FA1614A0E41} = {915A360F-815D-4369-AC07-6F6B054986DD}
 		{5BDE5675-319A-466B-A70B-DE531E626D4E} = {915A360F-815D-4369-AC07-6F6B054986DD}
+		{C59782BD-E869-4042-BA56-BE525EC160CA} = {915A360F-815D-4369-AC07-6F6B054986DD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7FF77D75-A6C6-4F43-927B-4F5B88399A29}

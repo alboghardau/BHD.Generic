@@ -4,7 +4,7 @@ using BHD.Logger.Library.Models;
 
 namespace BHD.Logger.Library.Writers
 {
-    public class ConsoleWriter : IConsoleWriter
+    public class ConsoleWriter
     {
         public void WriteLog(Log log)
         {

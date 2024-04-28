@@ -1,4 +1,4 @@
-﻿using BHD.Logger.Library;
+﻿using BHD.Logger.DeepCore;
 using BHD.LogsHut.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +7,7 @@ builder.WebHost.UseUrls("http://localhost:5000");
 
 // Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddLogger(builder.Configuration);
+builder.Services.AddDeepLogger(builder.Configuration);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", corsPolicyBuilder =>

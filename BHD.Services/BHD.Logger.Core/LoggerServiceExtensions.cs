@@ -6,18 +6,17 @@ using Microsoft.Extensions.Configuration;
 
 namespace BHD.Logger.Library
 {
-    public static class LoggerExtensions
+    public static class LoggerServiceExtensions
     {
         public static void AddLogger(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddHttpClient("LoggerClient");
             
-            services.AddSingleton<ILogger, Logger>();
-            services.AddSingleton<LoggerStorage>();
+            services.AddSingleton<ILogger, Loggy>();
+            services.AddSingleton<IBuffer, LogsBuffer>();
             services.AddSingleton(new LoggerConfig(configuration));
-            services.AddSingleton<IConsoleWriter, ConsoleWriter>();
+            services.AddSingleton<ConsoleWriter>();
             services.AddTransient<HttpWriter>();
-            services.AddSingleton<LoggerDeepStorage>();
         }
     }
 }

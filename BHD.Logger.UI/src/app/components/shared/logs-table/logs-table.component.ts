@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Log } from "src/app/models/log.model";
 import { LogLevel } from "src/app/enums/loglevel.enum";
+import { DatePipe } from "@angular/common";
 
 @Component({
     selector: "logs-table",

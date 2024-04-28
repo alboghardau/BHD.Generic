@@ -19,41 +19,23 @@
     </button>
     <div class="font-bold">Search</div>
 
-    <div
-        #topbarmenu
-        class="layout-topbar-menu"
-        [ngClass]="{
-            'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible
-        }">
+    <div #topbarmenu class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
         <!-- LiveView - Play Pause Button -->
         <button *ngIf="transferService.isLivePage()" class="p-link layout-topbar-button" (click)="transferService.toogleLivePooling()">
-            <i
-                class="pi"
-                [ngClass]="{
-                    'pi-play': !transferService.isLiveRunning(),
-                    'pi-pause': transferService.isLiveRunning()
-                }"></i>
+            <i class="pi" [ngClass]="{'pi-play': !transferService.isLiveRunning(), 'pi-pause': transferService.isLiveRunning() }"></i>
             <span>Calendar</span>
         </button>
 
         <!-- Dark Mode Button -->
         <button class="p-link layout-topbar-button" (click)="layoutService.toggleDarkMode()">
-            <i
-                class="pi"
-                [ngClass]="{
-                    'pi-moon': !layoutService.isDarkModeActive,
-                    'pi-sun': layoutService.isDarkModeActive
-                }"></i>
-            <span>Calendar</span>
+            <i class="pi" [ngClass]="{'pi-moon': !layoutService.isDarkModeActive, 'pi-sun': layoutService.isDarkModeActive}"></i>
+            <span>Dark Mode</span>
         </button>
 
-        <!-- <button class="p-link layout-topbar-button">
-            <i class="pi pi-user"></i>
-            <span>Profile</span>
-        </button>
-        <button class="p-link layout-topbar-button" [routerLink]="'/documentation'">
+        <!-- Dark Mode Button -->
+        <button class="p-link layout-topbar-button">
             <i class="pi pi-cog"></i>
-            <span>Settings</span>
-        </button> -->
+            <span>Calendar</span>
+        </button>
     </div>
 </div>

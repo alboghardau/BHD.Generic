@@ -5,14 +5,14 @@ using BHD.Logger.Library.Models;
 
 namespace BHD.Logger.Library
 {
-    public class Logger : ILogger
+    public class Loggy : ILogger
     {
-        private readonly LoggerStorage _loggerStorage;
+        private readonly IBuffer _buffer;
         private readonly LoggerConfig _config;
 
-        public Logger(LoggerStorage loggerStorage, LoggerConfig loggerConfig)
+        public Loggy(IBuffer loggerStorage, LoggerConfig loggerConfig)
         {
-            _loggerStorage = loggerStorage;
+            _buffer = loggerStorage;
             _config = loggerConfig;
         }
 
@@ -31,21 +31,22 @@ namespace BHD.Logger.Library
 
         public void Add(Log log)
         {
-            _loggerStorage.Add(log);
+            _buffer.Add(log);
         }
 
         private void RecordLog(LogLevel logLevel, string message)
         {
             if (!_config.IsLogLevelActive(logLevel)) return;
             var log = new Log(message, logLevel);
-            _loggerStorage.Add(log);
+            _buffer.Add(log);
         }
+
         private void RecordLog(LogLevel logLevel, string format, params object[] args)
         {
             if (!_config.IsLogLevelActive(logLevel)) return;
             var message = string.Format(format, args);
             var log = new Log(message, logLevel);
-            _loggerStorage.Add(log);
+            _buffer.Add(log);
         }
     }
 }
