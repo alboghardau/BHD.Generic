@@ -19,7 +19,22 @@ namespace BHD.LogsHut.Controllers
         {
             var stats = _statisticsManager.GetLastHourPerMinute();
 
-            return Ok(stats);
+            var labels = new List<string>();
+            var values = new List<int>();
+
+            foreach (var kvp in stats.Reverse())
+            {
+                labels.Add(kvp.Key.Minute.ToString());
+                values.Add(kvp.Value);
+            }
+
+            var response = new
+            {
+                Labels = labels,
+                Values = values
+            };
+
+            return Ok(response);
         }
     }
 }

@@ -31,5 +31,13 @@ namespace BHD.LogsHut.Controllers
 
             return Ok(response);
         }
+
+        [HttpGet("lastcritical")]
+        public IActionResult GetLastCritical()
+        {
+            var logs = _storage.GetLastCriticalLogs();
+
+            return Ok(logs);
+        }
     }
 }

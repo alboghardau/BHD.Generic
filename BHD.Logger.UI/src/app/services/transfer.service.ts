@@ -6,8 +6,8 @@ import { Injectable, signal, Signal } from "@angular/core";
 export class TransferService{
 
     //live page
-    public isLivePage = signal<boolean>(true);
-    public isLiveRunning = signal<boolean>(true);
+    public isLivePage = signal<boolean>(false);
+    public isLiveRunning = signal<boolean>(false);
 
     public toogleLivePooling(){
         this.isLiveRunning.set(!this.isLiveRunning());

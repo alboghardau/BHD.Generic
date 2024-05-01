@@ -1,4 +1,5 @@
 using BHD.Logger.DeepCore.Statistics;
+using BHD.Logger.Library.Enums;
 using BHD.Logger.Library.Models;
 
 namespace BHD.Logger.DeepCore.Storage;
@@ -41,6 +42,17 @@ public class DeepStorage
         lock (_sortedSet)
         {
             return isFirstCall ? _sortedSet.Take(1000).ToList() : _sortedSet.Where(log => log.Time > requestedTime).ToList();
+        }
+    }
+
+    public List<Log> GetLastCriticalLogs()
+    {
+        lock (_sortedSet)
+        {
+            return _sortedSet
+                .Where(x => x.LogLevel == LogLevel.Error || x.LogLevel == LogLevel.Fatal)
+                .Take(10)
+                .ToList();
         }
     }
 

@@ -14,7 +14,7 @@ export function initConfiguration(service: ConfigurationService) {
 }
 @NgModule({
     declarations: [AppComponent],
-    imports: [AppRoutingModule, AppLayoutModule,],
+    imports: [AppRoutingModule, AppLayoutModule],
     providers: [
         {
             provide: APP_INITIALIZER,
