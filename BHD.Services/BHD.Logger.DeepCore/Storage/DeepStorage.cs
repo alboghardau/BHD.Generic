@@ -1,3 +1,4 @@
+using BHD.Logger.DeepCore.Statistics;
 using BHD.Logger.Library.Models;
 
 namespace BHD.Logger.DeepCore.Storage;
@@ -9,9 +10,11 @@ public class DeepStorage
 {
     private readonly SortedSet<Log> _sortedSet = new();
 
-    public DeepStorage()
-    {
+    private readonly StatisticsManager _statisticsManager;
 
+    public DeepStorage(StatisticsManager statisticsManager)
+    {
+        _statisticsManager = statisticsManager;
     }
 
     /// <summary>
@@ -26,6 +29,8 @@ public class DeepStorage
                 _sortedSet.Add(log);
             }
         }
+
+        _statisticsManager.CountLogs(logs);
     }
 
     /// <summary>

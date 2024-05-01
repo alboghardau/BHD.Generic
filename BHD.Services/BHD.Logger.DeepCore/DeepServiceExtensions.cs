@@ -1,4 +1,6 @@
-﻿using BHD.Logger.DeepCore.Storage;
+﻿using BHD.Logger.DeepCore.Statistics;
+using BHD.Logger.DeepCore.Statistics.Counters;
+using BHD.Logger.DeepCore.Storage;
 using BHD.Logger.Library;
 using BHD.Logger.Library.Core;
 using BHD.Logger.Library.Interfaces;
@@ -17,6 +19,10 @@ namespace BHD.Logger.DeepCore
             services.AddSingleton<DeepStorage>();
             services.AddSingleton(new LoggerConfig(configuration));
             services.AddSingleton<ConsoleWriter>();
+
+            //statistics
+            services.AddSingleton<StatisticsManager>();
+            services.AddSingleton<LogsPerMinute>();
         }
     }
 }
