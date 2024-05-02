@@ -8,7 +8,7 @@ imports: [
         path: '', component: AppLayoutComponent,
         children: [
             {path: '', loadChildren: () => import('./components/live-view/live-view.module').then(m => m.LiveViewModule)},
-            {path: 'dashboard', loadChildren: () => import('./components/darshboard/dashboard.module').then(m => m.DashboardModule)}
+            {path: 'dashboard', loadChildren: () => import('./components/dashboard/dashboard.module').then(m => m.DashboardModule)}
         ]
     }])
 ],
