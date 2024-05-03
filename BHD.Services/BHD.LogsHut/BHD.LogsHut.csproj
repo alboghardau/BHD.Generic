@@ -6,8 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(RunConfiguration)' == 'BHD.Logger' " />
-
   <ItemGroup>
     <Compile Remove="Enums\**" />
     <Compile Remove="Interfaces\**" />

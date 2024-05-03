@@ -23,6 +23,7 @@ namespace BHD.Logger.DeepCore
             //statistics
             services.AddSingleton<StatisticsManager>();
             services.AddSingleton<LogsPerMinute>();
+            services.AddSingleton<GeneralCounters>();
         }
     }
 }

@@ -11,17 +11,17 @@ namespace BHD.Logger.DeepCore.Statistics.Counters
     {
         private Dictionary<DateTime, int> logsPerMinute = new();
 
-        public void CountLogs(List<Log> logs)
+        public void CalculateStatistics(List<Log> logs)
         {
             foreach (var log in logs)
             {
                 var time = log.Time;
                 var logMinute = new DateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute, 0);
 
-                if(logsPerMinute.ContainsKey(logMinute))                
+                if(logsPerMinute.ContainsKey(logMinute))            
                     logsPerMinute[logMinute]++;
                 else
-                    logsPerMinute[logMinute] = 1;                
+                    logsPerMinute[logMinute] = 1;
             }
         }
 

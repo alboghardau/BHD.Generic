@@ -7,9 +7,9 @@ namespace BHD.LogsHut.Controllers
     [ApiController]
     public class StatsController : ControllerBase
     {
-        private readonly StatisticsManager _statisticsManager;  
+        private readonly StatisticsManager _statisticsManager;
 
-        public StatsController(StatisticsManager statisticsManager) 
+        public StatsController(StatisticsManager statisticsManager)
         {
             _statisticsManager = statisticsManager;
         }
@@ -32,6 +32,19 @@ namespace BHD.LogsHut.Controllers
             {
                 Labels = labels,
                 Values = values
+            };
+
+            return Ok(response);
+        }
+
+        [HttpGet("generalcounters")]
+        public IActionResult GetGeneralCounters()
+        {
+            var response = new
+            {
+                TotalCount = _statisticsManager.GetTotalCount(),
+                FatalCount = _statisticsManager.GetFatalCount(),
+                ErrorCount = _statisticsManager.GetErrorCount()
             };
 
             return Ok(response);

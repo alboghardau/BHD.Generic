@@ -31,7 +31,7 @@ public class DeepStorage
             }
         }
 
-        _statisticsManager.CountLogs(logs);
+        _statisticsManager.CalculateStatistics(logs);
     }
 
     /// <summary>
