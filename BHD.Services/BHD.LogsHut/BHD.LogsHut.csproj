@@ -6,8 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(RunConfiguration)' == 'BHD.Logger' " />
-
   <ItemGroup>
     <Compile Remove="Enums\**" />
     <Compile Remove="Interfaces\**" />
@@ -44,6 +42,7 @@
     <ProjectReference Include="..\BHD.Common\BHD.Utils.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\BHD.Logger.DeepCore\BHD.Logger.DeepCore.csproj" />
   </ItemGroup>
   <ItemGroup>
     <_ContentIncludedByDefault Remove="release\web.config" />

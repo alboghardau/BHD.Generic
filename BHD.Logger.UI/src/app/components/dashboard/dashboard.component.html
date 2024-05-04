@@ -1,0 +1,14 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <h5>Last Hour Stats</h5>
+            <line-chart [data]="chartData" [datasetLabel]="'Test'"></line-chart>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="card">
+            <h5>Last Critical Errors</h5>     
+            <logs-table [logs]="lastCriticalLogs"></logs-table>       
+        </div>
+    </div>
+</div>

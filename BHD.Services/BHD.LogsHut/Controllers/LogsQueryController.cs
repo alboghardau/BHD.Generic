@@ -1,4 +1,5 @@
-using BHD.Logger.Library.Core;
+using BHD.Logger.DeepCore;
+using BHD.Logger.DeepCore.Storage;
 using BHD.LogsHut.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,17 +9,17 @@ namespace BHD.LogsHut.Controllers
     [ApiController]
     public class LogsQueryController : ControllerBase
     {
-        private readonly LoggerDeepStorage _deepStorage;
+        private readonly LogsManager _manager;
         
-        public LogsQueryController(LoggerDeepStorage deepStorage)
+        public LogsQueryController(LogsManager manager)
         {
-            _deepStorage = deepStorage;
+            _manager = manager;
         }
 
         [HttpPost("live")]
         public IActionResult GetLogsAfterTime(LiveLogsRequestDto logsRequest)
         {
-            var logs = _deepStorage.GetLogsAfterDateTime(logsRequest.RequestTime, logsRequest.IsFirstCall);
+            var logs = _manager.GetLogsAfterDateTime(logsRequest.RequestTime, logsRequest.IsFirstCall);
             var lastElement = logs.FirstOrDefault();
             var latestTime = lastElement?.Time ?? DateTime.Now; 
 
@@ -29,6 +30,14 @@ namespace BHD.LogsHut.Controllers
             };
 
             return Ok(response);
+        }
+
+        [HttpGet("lastcritical")]
+        public IActionResult GetLastCritical()
+        {
+            var logs = _manager.GetLastCriticalLogs();
+
+            return Ok(logs);
         }
     }
 }
