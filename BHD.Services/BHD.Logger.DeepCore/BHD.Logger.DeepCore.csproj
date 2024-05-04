@@ -10,4 +10,8 @@
     <ProjectReference Include="..\BHD.Logger.Core\BHD.Logger.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models/" />
+  </ItemGroup>
+
 </Project>
