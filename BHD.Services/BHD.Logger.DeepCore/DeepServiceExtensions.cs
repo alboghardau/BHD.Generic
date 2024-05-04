@@ -15,10 +15,18 @@ namespace BHD.Logger.DeepCore
         public static void AddDeepLogger(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton<ILogger, Loggy>();
+            services.AddSingleton(new LoggerConfig(configuration));
+
+            //storage
             services.AddSingleton<IBuffer, DeepBuffer>();
             services.AddSingleton<DeepStorage>();
-            services.AddSingleton(new LoggerConfig(configuration));
+
+            //writers
             services.AddSingleton<ConsoleWriter>();
+
+            //reading
+            services.AddScoped<LogsManager>();
+            services.AddScoped<FilterEngine>();
 
             //statistics
             services.AddSingleton<StatisticsManager>();

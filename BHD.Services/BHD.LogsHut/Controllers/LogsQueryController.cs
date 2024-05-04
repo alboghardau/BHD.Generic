@@ -9,17 +9,17 @@ namespace BHD.LogsHut.Controllers
     [ApiController]
     public class LogsQueryController : ControllerBase
     {
-        private readonly DeepStorage _storage;
+        private readonly LogsManager _manager;
         
-        public LogsQueryController(DeepStorage storage)
+        public LogsQueryController(LogsManager manager)
         {
-            _storage = storage;
+            _manager = manager;
         }
 
         [HttpPost("live")]
         public IActionResult GetLogsAfterTime(LiveLogsRequestDto logsRequest)
         {
-            var logs = _storage.GetLogsAfterDateTime(logsRequest.RequestTime, logsRequest.IsFirstCall);
+            var logs = _manager.GetLogsAfterDateTime(logsRequest.RequestTime, logsRequest.IsFirstCall);
             var lastElement = logs.FirstOrDefault();
             var latestTime = lastElement?.Time ?? DateTime.Now; 
 
@@ -35,7 +35,7 @@ namespace BHD.LogsHut.Controllers
         [HttpGet("lastcritical")]
         public IActionResult GetLastCritical()
         {
-            var logs = _storage.GetLastCriticalLogs();
+            var logs = _manager.GetLastCriticalLogs();
 
             return Ok(logs);
         }

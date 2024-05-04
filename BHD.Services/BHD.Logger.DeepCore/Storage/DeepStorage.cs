@@ -9,6 +9,9 @@ namespace BHD.Logger.DeepCore.Storage;
 /// </summary>
 public class DeepStorage
 {
+    public SortedSet<Log> Logs { get { return _sortedSet; } }
+    public int LogsCount { get { return _sortedSet.Count(); } }
+
     private readonly SortedSet<Log> _sortedSet = new();
 
     private readonly StatisticsManager _statisticsManager;
@@ -32,37 +35,5 @@ public class DeepStorage
         }
 
         _statisticsManager.CalculateStatistics(logs);
-    }
-
-    /// <summary>
-    /// Returns the last logs after a specified DateTime
-    /// </summary>
-    public List<Log> GetLogsAfterDateTime(DateTime requestedTime, bool isFirstCall = false)
-    {
-        lock (_sortedSet)
-        {
-            return isFirstCall ? _sortedSet.Take(1000).ToList() : _sortedSet.Where(log => log.Time > requestedTime).ToList();
-        }
-    }
-
-    public List<Log> GetLastCriticalLogs()
-    {
-        lock (_sortedSet)
-        {
-            return _sortedSet
-                .Where(x => x.LogLevel == LogLevel.Error || x.LogLevel == LogLevel.Fatal)
-                .Take(10)
-                .ToList();
-        }
-    }
-
-    public List<Log> GetLogsBatch(int skip, int take)
-    {
-        return _sortedSet.Skip(skip).Take(take).ToList();
-    }
-
-    public int GetCount()
-    {
-        return _sortedSet.Count;
     }
 }
