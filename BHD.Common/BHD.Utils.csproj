@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<AssemblyName>BHD.Utils</AssemblyName>
+	<ReleaseVersion>1.0.0</ReleaseVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Array\" />
+    <None Remove="Time\" />
+    <None Remove="Enumerable\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Array\" />
+    <Folder Include="Time\" />
+    <Folder Include="Enumerable\" />
+  </ItemGroup>
+</Project>
