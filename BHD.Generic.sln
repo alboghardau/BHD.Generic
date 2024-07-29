@@ -6,6 +6,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BHD.Config", "BHD.Config\BH
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BHD.Utils", "BHD.Common\BHD.Utils.csproj", "{18595F3B-F334-4828-B9CE-2A783DCCCC4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BHD.Config.Tests", "BHD.Config.Tests\BHD.Config.Tests.csproj", "{4D44D884-8244-4A28-94E0-C949BF36B1FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{18595F3B-F334-4828-B9CE-2A783DCCCC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18595F3B-F334-4828-B9CE-2A783DCCCC4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18595F3B-F334-4828-B9CE-2A783DCCCC4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D44D884-8244-4A28-94E0-C949BF36B1FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D44D884-8244-4A28-94E0-C949BF36B1FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D44D884-8244-4A28-94E0-C949BF36B1FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D44D884-8244-4A28-94E0-C949BF36B1FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
