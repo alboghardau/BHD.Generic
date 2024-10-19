@@ -72,7 +72,6 @@ namespace BHD.Config.Services
         }
 
         #region Privates
-
         private string ReadValue(string jsonPath)
         {
             var value = _configFile.Configuration.SelectToken(jsonPath);
